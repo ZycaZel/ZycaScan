@@ -67,13 +67,27 @@
   // ------------------------------------------------------------------
   // Data
   // ------------------------------------------------------------------
+  // Paths are relative so the site works at a domain root (Vercel) and under a
+  // sub-path (GitHub Pages: zycazel.github.io/ZycaScan/).
   var cache = {};
+  function getJSON(url) {
+    return fetch(url, { cache: 'no-cache' })
+      .then(function (r) { if (!r.ok) throw new Error(url + ': HTTP ' + r.status); return r.json(); });
+  }
   ZS.load = function (name) {
-    if (!cache[name]) {
-      cache[name] = fetch('/data/' + name, { cache: 'no-cache' })
-        .then(function (r) { if (!r.ok) throw new Error(name + ': HTTP ' + r.status); return r.json(); });
-    }
+    if (!cache[name]) cache[name] = getJSON('data/' + name);
     return cache[name];
+  };
+
+  // Intraday alerts change every few minutes, but the site is only redeployed
+  // nightly. So live files are read straight from the repo (raw.githubusercontent,
+  // ~5 min cache), falling back to the deployed copy; local previews use the local copy.
+  ZS.REPO_RAW = 'https://raw.githubusercontent.com/ZycaZel/ZycaScan/main/';
+  ZS.loadLive = function (name) {
+    var local = /^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname) || location.protocol === 'file:';
+    if (local) return ZS.load(name);
+    return getJSON(ZS.REPO_RAW + 'data/' + name + '?t=' + Math.floor(Date.now() / 60000))
+      .catch(function () { return ZS.load(name); });
   };
 
   // Personal watchlist: browser-only, so every read and write is guarded.
@@ -159,20 +173,24 @@
     '<rect class="il-lm-bezel" x="2" y="2" width="36" height="36" rx="5" stroke-width="1.4"/>' +
     '<polyline class="il-lm-z" points="12,13 26,13 12,27 26,27" stroke-width="3.2" stroke-linecap="square" stroke-linejoin="miter" fill="none"/>' +
     '<rect class="il-lm-cursor" x="28" y="24" width="5" height="7"/></svg>';
-  var PAGES = [['/about', 'About'], ['/methodology', 'Methodology'], ['/explorer', 'Explorer'], ['/watchlist', 'Watchlist'], ['/replay', 'Replay']];
+  var PAGES = [['about', 'About'], ['methodology', 'Methodology'], ['explorer', 'Explorer'], ['watchlist', 'Watchlist'], ['replay', 'Replay']];
   var HOME_ANCHORS = [['#how', 'How it works'], ['#live', 'Live'], ['#setups', 'Setups'], ['#breakdown', 'Breakdown'], ['#activity', 'Activity'], ['#use', 'Use it'], ['#faq', 'FAQ']];
   var NAV_ANCHORS = [['#live', 'Live'], ['#setups', 'Setups'], ['#faq', 'FAQ']]; // the rest live in the footer
 
-  function host() { return location.host || 'zycascan'; }
+  // what to print as the site's address: host plus any sub-path (GitHub Pages)
+  function host() {
+    var base = location.pathname.replace(/[^\/]*$/, '').replace(/\/$/, '');
+    return (location.host || 'zycascan') + base;
+  }
 
   function renderChrome() {
-    var path = location.pathname.replace(/\.html$/, '').replace(/\/$/, '') || '/';
-    var isHome = path === '/' || path === '/index';
-    function anchor(list) { return list.map(function (a) { return [(isHome ? '' : '/') + a[0], a[1]]; }); }
+    var page = location.pathname.split('/').pop().replace(/\.html$/, '');
+    var isHome = page === '' || page === 'index';
+    function anchor(list) { return list.map(function (a) { return [(isHome ? '' : './') + a[0], a[1]]; }); }
     var anchors = anchor(HOME_ANCHORS), navAnchors = anchor(NAV_ANCHORS);
     function links(list) {
       return list.map(function (l) {
-        var cur = l[0] === path ? ' aria-current="page"' : '';
+        var cur = l[0] === page ? ' aria-current="page"' : '';
         return '<a href="' + l[0] + '"' + cur + '>' + l[1] + '</a>';
       }).join('');
     }
@@ -186,14 +204,14 @@
         '<span id="market-status">Checking market…</span><span>&middot; Scanner data, no trading</span></span>' +
         '</div></div>' +
         '<nav class="il-nav"><div class="il-nav-inner">' +
-        '<a class="il-wordmark" href="/" aria-label="ZycaScan home">' + LOGO.replace(/SIZE/g, '38') +
+        '<a class="il-wordmark" href="./" aria-label="ZycaScan home">' + LOGO.replace(/SIZE/g, '38') +
         '<span class="il-brand-text"><span class="il-brand-name">ZycaScan</span><span class="il-brand-url">' + ZS.esc(host()) + '</span></span>' +
         '<span class="il-mark">SETUPS</span></a>' +
         '<input type="checkbox" id="nav-toggle" class="il-nav-toggle-input">' +
         '<label for="nav-toggle" class="il-nav-toggle-label" aria-label="Toggle menu"><svg width="18" height="14" viewBox="0 0 18 14" fill="none" aria-hidden="true">' +
         '<path d="M0 1H18" stroke="currentColor" stroke-width="2"/><path d="M0 7H18" stroke="currentColor" stroke-width="2"/><path d="M0 13H18" stroke="currentColor" stroke-width="2"/></svg></label>' +
         '<div class="il-navlinks">' + links(PAGES) + links(navAnchors) +
-        '<a class="il-btn" href="/explorer">Open explorer</a></div>' +
+        '<a class="il-btn" href="explorer">Open explorer</a></div>' +
         '</div></nav>';
     }
 

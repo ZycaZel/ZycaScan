@@ -6,9 +6,9 @@
 <title>ZycaScan &mdash; every US chart, one setup scan a day</title>
 <meta name="description" content="ZycaScan reads the daily chart of every US-listed stock, keeps the liquid ones, and lists the charts that match five mechanical setups: 20-day breakouts, bull flags, 20-day average reclaims, oversold, and oversold bounces.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect x='2' y='2' width='36' height='36' rx='5' fill='%23ff5240' stroke='%23ff5240' stroke-width='1.4'/%3E%3Cpolyline points='12,13 26,13 12,27 26,27' stroke='%230a0b10' stroke-width='3.2' stroke-linecap='square' stroke-linejoin='miter' fill='none'/%3E%3Crect x='28' y='24' width='5' height='7' fill='%2335d488'/%3E%3C/svg%3E">
-<link rel="stylesheet" href="/styles.css">
-<link rel="stylesheet" href="/scan.css">
-<script src="/app.js" defer></script>
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="scan.css">
+<script src="app.js" defer></script>
 </head>
 <body>
 <div class="il-root" id="top">
@@ -22,7 +22,7 @@
         <h1>Five thousand charts a night.<br>Only a few are <em>doing</em> something.</h1>
         <p class="il-hero-sub">ZycaScan reads the daily chart of every US-listed common stock, throws out the ones too thin to trade, and lists the charts that match five plain, mechanical setups &mdash; with the exact rule each one met. No picks, no predictions, no orders.</p>
         <div class="il-hero-cta">
-          <a class="il-btn il-btn-primary" href="/explorer">Explore today's scan</a>
+          <a class="il-btn il-btn-primary" href="explorer">Explore today's scan</a>
           <a class="il-link" href="#how">See how the scan works &darr;</a>
         </div>
       </div>
@@ -153,7 +153,7 @@
             <tr><td colspan="7" class="zs-muted">Loading the last scan&hellip;</td></tr>
           </tbody>
         </table>
-        <div class="zs-more"><a class="il-btn" id="more-link" href="/explorer">See every match in the explorer</a></div>
+        <div class="zs-more"><a class="il-btn" id="more-link" href="explorer">See every match in the explorer</a></div>
       </div>
       <div class="il-caption">
         <span>&#9679; = the chart matched more than one setup<span id="signals-asof"></span></span>
@@ -235,7 +235,7 @@
             <li>Personal watchlist, kept in your own browser</li>
             <li>Replay of past scans and where those names closed since</li>
           </ul>
-          <a class="il-btn" href="/explorer">Open the explorer</a>
+          <a class="il-btn" href="explorer">Open the explorer</a>
         </div>
         <div class="il-tier il-tier-featured zs-tier-run">
           <span class="il-tier-name">Run it yourself</span>
@@ -247,10 +247,10 @@
             <li>A risk check that blocks anything over your limits</li>
             <li>Paper trading by default &mdash; every order needs your explicit yes</li>
           </ul>
-          <a class="il-btn il-btn-primary" href="/methodology#run-it">How to run it</a>
+          <a class="il-btn il-btn-primary" href="methodology#run-it">How to run it</a>
         </div>
       </div>
-      <p class="il-tier-note">There are no accounts, no payments and no broker connections on this site. ZycaScan is not a registered investment adviser or broker-dealer &mdash; see <a href="/about#legal">/about</a>.</p>
+      <p class="il-tier-note">There are no accounts, no payments and no broker connections on this site. ZycaScan is not a registered investment adviser or broker-dealer &mdash; see <a href="about#legal">/about</a>.</p>
     </div>
   </section>
 
@@ -281,7 +281,7 @@
         </details>
         <details class="il-faq-item">
           <summary>How do the breakout alerts work, and where do charts come from?</summary>
-          <div class="il-faq-body">Each night the scan sets a 20-day-high level for up to 150 candidates. Every 5 minutes during market hours, a 5-minute bar that closes above its level (or above the opening range) on at least 1.5&times; normal volume is posted to Discord once and listed in the Live section. Detection runs on free Yahoo data. The interactive charts in the explorer are TradingView's own embedded widget, on TradingView's data, so prices can differ slightly. See <a href="/methodology#alerts">the methodology</a> for the exact rules.</div>
+          <div class="il-faq-body">Each night the scan sets a 20-day-high level for up to 150 candidates. Every 5 minutes during market hours, a 5-minute bar that closes above its level (or above the opening range) on at least 1.5&times; normal volume is posted to Discord once and listed in the Live section. Detection runs on free Yahoo data. The interactive charts in the explorer are TradingView's own embedded widget, on TradingView's data, so prices can differ slightly. See <a href="methodology#alerts">the methodology</a> for the exact rules.</div>
         </details>
         <details class="il-faq-item">
           <summary>What does "Replay" show?</summary>
@@ -368,16 +368,16 @@ document.addEventListener('DOMContentLoaded', function () {
       '<tr><td colspan="7" class="zs-muted">Nothing matched this setup in the last scan.</td></tr>';
     var more = document.getElementById('more-link');
     more.textContent = rows.length > TOP_N ? 'See all ' + ZS.int(rows.length) + ' in the explorer' : 'Open the explorer';
-    more.href = '/explorer' + (filter !== 'all' ? '?setup=' + filter : '');
+    more.href = 'explorer' + (filter !== 'all' ? '?setup=' + filter : '');
   }
 
   document.getElementById('signals-tbody').addEventListener('click', function (e) {
     var tr = e.target.closest('tr[data-s]');
-    if (tr) location.href = '/explorer?s=' + encodeURIComponent(tr.getAttribute('data-s'));
+    if (tr) location.href = 'explorer?s=' + encodeURIComponent(tr.getAttribute('data-s'));
   });
   document.getElementById('signals-tbody').addEventListener('keydown', function (e) {
     var tr = e.target.closest('tr[data-s]');
-    if (tr && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); location.href = '/explorer?s=' + encodeURIComponent(tr.getAttribute('data-s')); }
+    if (tr && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); location.href = 'explorer?s=' + encodeURIComponent(tr.getAttribute('data-s')); }
   });
 
   function confluence(d) {
@@ -386,10 +386,10 @@ document.addEventListener('DOMContentLoaded', function () {
     // three-setup charts first, then the most traded
     multi.sort(function (a, b) { return b.set.length - a.set.length || b.dv - a.dv; });
     document.getElementById('confluence-list').innerHTML = multi.slice(0, 5).map(function (h) {
-      return '<div class="il-cluster-item"><a class="il-cluster-ticker" href="/explorer?s=' + encodeURIComponent(h.s) + '">' + ZS.esc(h.s) + '</a>' +
+      return '<div class="il-cluster-item"><a class="il-cluster-ticker" href="explorer?s=' + encodeURIComponent(h.s) + '">' + ZS.esc(h.s) + '</a>' +
         '<span class="il-cluster-company">' + ZS.esc(h.n) + '</span>' +
         '<span class="il-cluster-insiders">' + h.set.map(function (s) { return ZS.SETUP[s] ? ZS.SETUP[s].label : s; }).join(' + ') + '</span></div>';
-    }).join('') + (multi.length > 5 ? '<div class="il-cluster-item zs-muted"><a href="/explorer?setup=multi">+ ' + (multi.length - 5) + ' more charts on two or more setups &rarr;</a></div>' : '');
+    }).join('') + (multi.length > 5 ? '<div class="il-cluster-item zs-muted"><a href="explorer?setup=multi">+ ' + (multi.length - 5) + ' more charts on two or more setups &rarr;</a></div>' : '');
     document.getElementById('confluence-highlight').hidden = false;
   }
 
@@ -426,7 +426,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Live breakouts + closest to their level
   Promise.all([
-    ZS.load('alerts/today.json').catch(function () { return null; }),
+    ZS.loadLive('alerts/today.json').catch(function () { return null; }),
     ZS.load('alerts/candidates.json').catch(function () { return null; })
   ]).then(function (res) {
     var today = res[0], cand = res[1];
@@ -448,7 +448,7 @@ document.addEventListener('DOMContentLoaded', function () {
           ' · ' + ZS.pct(x.over, 1) + (x.vol != null ? ' · ' + x.vol.toFixed(1) + '× vol' : '') + (x.gap ? ' · gap' : '');
         return '<div class="zs-break-row">' +
           '<span class="zs-break-time">' + ZS.esc(x.bar) + '</span>' +
-          '<a class="zs-break-sym" href="/explorer?s=' + encodeURIComponent(x.s) + '">' + ZS.esc(x.s) + '</a>' +
+          '<a class="zs-break-sym" href="explorer?s=' + encodeURIComponent(x.s) + '">' + ZS.esc(x.s) + '</a>' +
           '<span class="zs-break-kind zs-k-' + x.type + '">' + (x.type === '20d' ? '20-DAY HIGH' : 'OPEN RANGE') + '</span>' +
           '<span class="zs-break-detail" title="' + ZS.esc(x.n || '') + '">' + detail + '</span>' +
           '<a class="zs-break-link" href="https://www.tradingview.com/chart/?symbol=' + encodeURIComponent(x.s) + '" target="_blank" rel="noopener">TradingView &#8599;</a>' +
@@ -467,7 +467,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (cand) document.getElementById('near-asof').textContent = 'from ' + ZS.dateLabel(cand.as_of, false) + ' close';
     near.innerHTML = rows.length ? rows.map(function (x) {
       var w = Math.max(4, 100 - x.dist * 20); // 0% away = full bar, 5%+ away = nearly empty
-      return '<div class="zs-near-row"><a class="zs-break-sym" href="/explorer?s=' + encodeURIComponent(x.s) + '">' + ZS.esc(x.s) + '</a>' +
+      return '<div class="zs-near-row"><a class="zs-break-sym" href="explorer?s=' + encodeURIComponent(x.s) + '">' + ZS.esc(x.s) + '</a>' +
         '<span class="zs-near-bar" title="' + x.dist.toFixed(2) + '% below ' + ZS.money(x.level) + '"><i style="width:' + w.toFixed(0) + '%"></i></span>' +
         '<span class="zs-near-val">' + x.dist.toFixed(1) + '% · ' + ZS.money(x.level) + '</span></div>';
     }).join('') : '<div class="il-activity-empty">No levels set yet. They are built after each nightly scan.</div>';

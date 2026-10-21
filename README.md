@@ -5,7 +5,8 @@ structure, but instead of SEC Form 4 filings it publishes the nightly **chart
 setup scan** of every US-listed stock, TradingView charts, and **intraday
 breakout alerts to Discord**.
 
-Static site on Vercel + two GitHub Actions jobs. No accounts, no broker, no orders.
+Static site on **GitHub Pages** (https://zycazel.github.io/ZycaScan/) + GitHub Actions jobs. No accounts, no broker, no orders.
+All links are relative, so the same files also work on Vercel, Netlify or Cloudflare Pages at a domain root.
 
 ## Pages
 
@@ -21,8 +22,9 @@ Static site on Vercel + two GitHub Actions jobs. No accounts, no broker, no orde
 
 | job | when | does |
 | --- | --- | --- |
-| `.github/workflows/nightly.yml` | weekdays 21:30 UTC (+ backup 23:30) | scan all US stocks → `build_data.py` → `build_levels.py` → Discord summary → commit `data/` (Vercel redeploys) |
-| `.github/workflows/breakouts.yml` | every 5 min, 13:00–21:55 UTC weekdays | `breakout_watch.py`: 5-minute closes above the 20-day high or the opening range with ≥1.5× slot volume → Discord, once per ticker per trigger → commit `data/alerts/today.json` |
+| `.github/workflows/nightly.yml` | weekdays 21:30 UTC (+ backup 23:30) | scan all US stocks → `build_data.py` → `build_levels.py` → Discord summary → commit `data/` → redeploy Pages |
+| `.github/workflows/breakouts.yml` | every 5 min, 13:00–21:55 UTC weekdays | `breakout_watch.py`: 5-minute closes above the 20-day high or the opening range with ≥1.5× slot volume → Discord, once per ticker per trigger → commit `data/alerts/today.json` (the site reads it straight from the repo, so no redeploy) |
+| `.github/workflows/pages.yml` | every push to `main`, and after each nightly commit | deploys the site to GitHub Pages |
 
 Both scripts know New York time, DST, NYSE holidays and early closes, and exit
 immediately outside the session.
@@ -42,10 +44,10 @@ watched first, for both triggers, from the next session.
 
 ## Setup (one time)
 
-1. Push this folder to a GitHub repo and import it in Vercel (static, no build).
+1. Repo → Settings → Pages → Source: **GitHub Actions**. Every push then deploys to https://zycazel.github.io/ZycaScan/.
 2. GitHub repo → Settings → Secrets and variables → Actions:
    - secret `DISCORD_WEBHOOK_URL` — a Discord channel webhook (Channel settings → Integrations → Webhooks). It can be the same one ZycaAlgo uses, or a separate #breakouts channel.
-   - variable `ZYCASCAN_URL` — the site's URL (adds "ZycaScan" links to alerts). Optional.
+   - variable `ZYCASCAN_URL` = `https://zycazel.github.io/ZycaScan` (adds "ZycaScan" links to alerts). Optional.
    - secrets `APCA_API_KEY_ID` / `APCA_API_SECRET_KEY` — optional; only used as a read-only fallback for 5-minute bars (Alpaca market data, free IEX feed). Paper keys work.
 3. Actions tab → run **ZycaScan nightly scan** once by hand to publish data and levels.
 
