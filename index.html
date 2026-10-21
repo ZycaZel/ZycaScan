@@ -1,0 +1,508 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ZycaScan &mdash; every US chart, one setup scan a day</title>
+<meta name="description" content="ZycaScan reads the daily chart of every US-listed stock, keeps the liquid ones, and lists the charts that match five mechanical setups: 20-day breakouts, bull flags, 20-day average reclaims, oversold, and oversold bounces.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect x='2' y='2' width='36' height='36' rx='5' fill='%23ff5240' stroke='%23ff5240' stroke-width='1.4'/%3E%3Cpolyline points='12,13 26,13 12,27 26,27' stroke='%230a0b10' stroke-width='3.2' stroke-linecap='square' stroke-linejoin='miter' fill='none'/%3E%3Crect x='28' y='24' width='5' height='7' fill='%2335d488'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="/styles.css">
+<link rel="stylesheet" href="/scan.css">
+<script src="/app.js" defer></script>
+</head>
+<body>
+<div class="il-root" id="top">
+
+  <div data-zs="top"></div>
+
+  <header class="il-hero">
+    <div class="il-container il-hero-grid">
+      <div>
+        <div class="il-eyebrow">Daily chart scan &middot; every US-listed stock</div>
+        <h1>Five thousand charts a night.<br>Only a few are <em>doing</em> something.</h1>
+        <p class="il-hero-sub">ZycaScan reads the daily chart of every US-listed common stock, throws out the ones too thin to trade, and lists the charts that match five plain, mechanical setups &mdash; with the exact rule each one met. No picks, no predictions, no orders.</p>
+        <div class="il-hero-cta">
+          <a class="il-btn il-btn-primary" href="/explorer">Explore today's scan</a>
+          <a class="il-link" href="#how">See how the scan works &darr;</a>
+        </div>
+      </div>
+      <div class="il-docstamp" id="il-docstamp">
+        <div class="il-term-bar">
+          <span class="il-term-dots"><span></span><span></span><span></span></span>
+          <span class="il-term-title">zycascan &mdash; scan.log</span>
+          <span class="il-term-status" id="il-term-status">LOADING</span>
+        </div>
+        <dl>
+          <div>
+            <dt>Scan data as of</dt>
+            <dd id="stat-asof">&mdash;</dd>
+          </div>
+          <div>
+            <dt>US-listed stocks read</dt>
+            <dd id="stat-universe">&mdash;</dd>
+          </div>
+          <div>
+            <dt>Passed $5 price &amp; 1M-share volume floor</dt>
+            <dd><span class="il-arrow">&darr;</span> <span id="stat-scanned">&mdash;</span></dd>
+          </div>
+          <div>
+            <dt>Matched at least one setup</dt>
+            <dd><span class="il-arrow">&darr;</span> <span id="stat-matched">&mdash;</span></dd>
+          </div>
+          <div>
+            <dt>Matched two or more</dt>
+            <dd id="stat-confluence">&mdash;</dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </header>
+
+  <div class="il-ticker-wrap" aria-hidden="true">
+    <div class="il-ticker" id="il-ticker-track"><span>Loading scan&hellip;</span></div>
+  </div>
+
+  <section class="il-section" id="how">
+    <div class="il-container">
+      <div class="il-section-head">
+        <div>
+          <div class="il-eyebrow">01 &mdash; The pipeline</div>
+          <h2>Four steps between the whole market and a short list.</h2>
+        </div>
+        <p>Most charts on most days aren't doing anything worth a second look. The pipeline exists to throw those away mechanically, so the list you read is short and every name on it says why it's there.</p>
+      </div>
+      <div class="il-steps">
+        <div class="il-step">
+          <span class="il-step-no">01 / Universe</span>
+          <h3>Every listed common stock</h3>
+          <p>Built from Nasdaq Trader's symbol directories: common shares, ordinary shares and ADRs. No ETFs, warrants, units, rights, notes or preferreds.</p>
+        </div>
+        <div class="il-step">
+          <span class="il-step-no">02 / Liquidity</span>
+          <h3>Tradeable, or it's out</h3>
+          <p>Last close at least $5 and at least 1,000,000 shares traded in the last session, with 30+ sessions of history to measure against.</p>
+        </div>
+        <div class="il-step">
+          <span class="il-step-no">03 / Setups</span>
+          <h3>Five rules, applied blind</h3>
+          <p>20-day breakout, bull flag, 20-day average reclaim, oversold, oversold bounce &mdash; computed on daily closes, the same way for every chart.</p>
+        </div>
+        <div class="il-step">
+          <span class="il-step-no">04 / Publish</span>
+          <h3>Listed, charted, logged</h3>
+          <p>Every match goes on the list with its rule, its 3-month chart and its RSI. What's new, what changed and what dropped off is logged run to run.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="il-section" id="live">
+    <div class="il-container">
+      <div class="il-section-head">
+        <div>
+          <div class="il-eyebrow">Live &mdash; breakouts today</div>
+          <h2>When a level breaks, it lands here <em>and</em> in Discord.</h2>
+        </div>
+        <p>Every 5 minutes during market hours, last night's candidates are checked bar by bar: a 5-minute close above the 20-day high, or above the opening range, with at least 1.5&times; normal volume. Each one alerts once.</p>
+      </div>
+      <div class="zs-live-grid">
+        <div class="zs-panel-box">
+          <h3><span id="live-title">Breakouts today</span><span id="live-count"></span></h3>
+          <div id="live-list"><div class="il-activity-empty">Loading&hellip;</div></div>
+        </div>
+        <div class="zs-panel-box">
+          <h3><span>Closest to their 20-day high</span><span id="near-asof"></span></h3>
+          <div id="near-list"><div class="il-activity-empty">Loading&hellip;</div></div>
+        </div>
+      </div>
+      <div class="il-caption">
+        <span id="live-caption">Checked every 5 minutes, 9:35&ndash;4:05 ET, on free delayed data. Alerts can arrive a few minutes after the bar.</span>
+        <span class="il-tag">A BREAKOUT IS NOT A BUY SIGNAL</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="il-section" id="setups">
+    <div class="il-container">
+      <div class="il-section-head">
+        <div>
+          <div class="il-eyebrow">02 &mdash; Live output</div>
+          <h2>What matched in the last scan.</h2>
+        </div>
+        <p>The real output of the last scan, most actively traded first (price &times; volume). Filter by setup; every name links to its chart in the explorer.</p>
+      </div>
+      <div id="confluence-highlight" class="il-cluster-highlight" hidden>
+        <div class="il-cluster-highlight-head">&#9679; Confluence &mdash; two or more setups on one chart</div>
+        <div id="confluence-list" class="il-cluster-highlight-list"></div>
+      </div>
+      <div class="zs-filters" id="setup-filters" role="group" aria-label="Filter by setup"></div>
+      <div class="il-tablewrap">
+        <table class="il-signals">
+          <thead>
+            <tr>
+              <th>Ticker</th>
+              <th class="zs-col-name">Company</th>
+              <th>Setups</th>
+              <th class="il-num">Last</th>
+              <th class="il-num">Day</th>
+              <th class="il-num">RSI 14</th>
+              <th class="il-num">3 months</th>
+            </tr>
+          </thead>
+          <tbody id="signals-tbody">
+            <tr><td colspan="7" class="zs-muted">Loading the last scan&hellip;</td></tr>
+          </tbody>
+        </table>
+        <div class="zs-more"><a class="il-btn" id="more-link" href="/explorer">See every match in the explorer</a></div>
+      </div>
+      <div class="il-caption">
+        <span>&#9679; = the chart matched more than one setup<span id="signals-asof"></span></span>
+        <span class="il-tag">A LIST OF CHARTS &middot; NOT A LIST OF BUYS</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="il-section" id="breakdown">
+    <div class="il-container">
+      <div class="il-section-head">
+        <div>
+          <div class="il-eyebrow">03 &mdash; Market read</div>
+          <h2>Read the scan, not just the list.</h2>
+        </div>
+        <p>How many charts matched each rule says something about the tape on its own. A night heavy on breakouts reads differently from one heavy on oversold names.</p>
+      </div>
+      <div class="il-docstamp">
+        <div class="il-term-bar">
+          <span class="il-term-dots"><span></span><span></span><span></span></span>
+          <span class="il-term-title">zycascan &mdash; breakdown.chart</span>
+          <span class="il-term-status" id="chart-term-status">LOADING</span>
+        </div>
+        <dl class="il-chart-stats">
+          <div><dt>Charts scanned</dt><dd id="bd-scanned">&mdash;</dd></div>
+          <div><dt>Matched a setup</dt><dd id="bd-matched">&mdash;</dd></div>
+          <div><dt>Breakouts : oversold</dt><dd id="bd-tilt">&mdash;</dd></div>
+          <div><dt>Advancing today</dt><dd id="bd-adv">&mdash;</dd></div>
+        </dl>
+        <div class="zs-panels">
+          <div class="zs-panel">
+            <h3>Matches by setup</h3>
+            <div id="setup-bars"></div>
+            <p class="zs-panel-note">A chart can match more than one rule, so these add up to more than the number of matched charts.</p>
+          </div>
+          <div class="zs-panel">
+            <h3>RSI 14 of matched charts</h3>
+            <div id="rsi-hist"></div>
+            <p class="zs-panel-note" id="rsi-note">Dashed lines mark 30 (oversold) and 70 (overbought).</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="il-section" id="activity">
+    <div class="il-container">
+      <div class="il-section-head">
+        <div>
+          <div class="il-eyebrow">Activity log</div>
+          <h2>Every new match, change, and drop &mdash; logged.</h2>
+        </div>
+        <p>Each scan is compared with the one before it. Names that newly match, switch setups, or stop matching all stay in the log. Nothing is cleaned up after the fact.</p>
+      </div>
+      <div class="il-activity-list" id="activity-list">
+        <div class="il-activity-empty">Loading activity&hellip;</div>
+      </div>
+      <p class="zs-activity-note" id="activity-note"></p>
+    </div>
+  </section>
+
+  <section class="il-section" id="use">
+    <div class="il-container">
+      <div class="il-section-head">
+        <div>
+          <div class="il-eyebrow">04 &mdash; Use it</div>
+          <h2>Browse it here, or run it yourself.</h2>
+        </div>
+        <p>Both run the same scan. The difference is whether you read the nightly result here, or run the scanner on your own machine and take it further. Everything is free, and nothing on this site trades.</p>
+      </div>
+      <div class="il-tiers il-tiers-two">
+        <div class="il-tier">
+          <span class="il-tier-name">Browse</span>
+          <div class="il-tier-price">Free</div>
+          <ul>
+            <li>Nightly setup scan of every US-listed stock</li>
+            <li>Confluence: charts matching two or more setups</li>
+            <li>Explorer with 3-month charts and the exact rule met</li>
+            <li>Personal watchlist, kept in your own browser</li>
+            <li>Replay of past scans and where those names closed since</li>
+          </ul>
+          <a class="il-btn" href="/explorer">Open the explorer</a>
+        </div>
+        <div class="il-tier il-tier-featured zs-tier-run">
+          <span class="il-tier-name">Run it yourself</span>
+          <div class="il-tier-price">Free</div>
+          <ul>
+            <li>The same scanner on your machine, as Claude skills</li>
+            <li>Intraday opening-range breakout scan after 9:50 ET</li>
+            <li>News, entry timing, exit planning and position sizing</li>
+            <li>A risk check that blocks anything over your limits</li>
+            <li>Paper trading by default &mdash; every order needs your explicit yes</li>
+          </ul>
+          <a class="il-btn il-btn-primary" href="/methodology#run-it">How to run it</a>
+        </div>
+      </div>
+      <p class="il-tier-note">There are no accounts, no payments and no broker connections on this site. ZycaScan is not a registered investment adviser or broker-dealer &mdash; see <a href="/about#legal">/about</a>.</p>
+    </div>
+  </section>
+
+  <section class="il-section" id="faq" style="border-bottom:none;">
+    <div class="il-container">
+      <div class="il-section-head">
+        <div>
+          <div class="il-eyebrow">Before you read anything into it</div>
+          <h2>Questions worth asking.</h2>
+        </div>
+      </div>
+      <div class="il-faq">
+        <details class="il-faq-item">
+          <summary>Is this a list of stocks to buy?</summary>
+          <div class="il-faq-body">No. It's a list of charts that matched a mechanical rule on the last close. A setup is a description of what a chart did, not a prediction of what it will do, and plenty of breakouts fail the next day. ZycaScan doesn't know your money, your risk, or your plan.</div>
+        </details>
+        <details class="il-faq-item">
+          <summary>Why are there hundreds of matches?</summary>
+          <div class="il-faq-body">Because the rules are deliberately simple and run on daily closes only. On a strong day hundreds of charts close at a 20-day high; on a weak one, hundreds go oversold. Use the filters, look at confluence, and start from names you already know.</div>
+        </details>
+        <details class="il-faq-item">
+          <summary>Where does the data come from, and how fresh is it?</summary>
+          <div class="il-faq-body">The symbol list comes from Nasdaq Trader's public directories; prices come from Yahoo Finance's free chart data, which is unofficial and can lag or be wrong. The scan runs on completed daily closes, so it describes the last session, not the market right now. The timestamp on every page says which close it is.</div>
+        </details>
+        <details class="il-faq-item">
+          <summary>Does this site place trades?</summary>
+          <div class="il-faq-body">No. There is no account, no broker connection and no order anywhere on this site. If you run the scanner yourself as Claude skills, orders go to a paper account by default and only after a risk check passes and you type an explicit yes for that one order.</div>
+        </details>
+        <details class="il-faq-item">
+          <summary>How do the breakout alerts work, and where do charts come from?</summary>
+          <div class="il-faq-body">Each night the scan sets a 20-day-high level for up to 150 candidates. Every 5 minutes during market hours, a 5-minute bar that closes above its level (or above the opening range) on at least 1.5&times; normal volume is posted to Discord once and listed in the Live section. Detection runs on free Yahoo data. The interactive charts in the explorer are TradingView's own embedded widget, on TradingView's data, so prices can differ slightly. See <a href="/methodology#alerts">the methodology</a> for the exact rules.</div>
+        </details>
+        <details class="il-faq-item">
+          <summary>What does "Replay" show?</summary>
+          <div class="il-faq-body">What each past scan listed, and the change from the close it was flagged at to the latest close. Close to close, no costs, no slippage, and only as many scans as have been run. It's a record, not a backtest and not a track record.</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <div data-zs="footer"></div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var ZS = window.ZS;
+  var TOP_N = 25;
+  var filter = 'all';
+  var data = null;
+
+  function setLive(id, text) { var el = document.getElementById(id); if (el) el.textContent = text; }
+
+  ZS.load('latest.json').then(function (d) {
+    data = d;
+    var f = d.funnel || {};
+    document.getElementById('il-docstamp').classList.add('il-live');
+    setLive('il-term-status', 'LIVE');
+    setLive('stat-asof', ZS.dateLabel(d.as_of) + ' close');
+    ZS.animateCount(document.getElementById('stat-universe'), f.universe || 0, function (v) { return ZS.int(Math.round(v)); });
+    ZS.animateCount(document.getElementById('stat-scanned'), f.scanned || 0, function (v) { return ZS.int(Math.round(v)); });
+    ZS.animateCount(document.getElementById('stat-matched'), f.matched || 0, function (v) { return ZS.int(Math.round(v)); });
+    setLive('stat-confluence', ZS.int(f.confluence) + ' charts · ' + (f.scanned ? (f.matched / f.scanned * 100).toFixed(0) : '0') + '% of scanned matched');
+    setLive('signals-asof', ' — scan of the ' + ZS.dateLabel(d.as_of) + ' close');
+
+    ticker(d);
+    filters(d);
+    table();
+    confluence(d);
+    breakdown(d);
+  }).catch(function (e) {
+    setLive('il-term-status', 'NO DATA');
+    document.getElementById('signals-tbody').innerHTML = '<tr><td colspan="7" class="zs-muted">No scan published yet. Run the scanner and scripts/build_data.py, then redeploy.</td></tr>';
+    console.error(e);
+  });
+
+  function ticker(d) {
+    var track = document.getElementById('il-ticker-track');
+    var items = d.hits.filter(function (h) { return h.chg != null; }).slice(0, 18);
+    if (!items.length) return;
+    var html = items.map(function (h) {
+      return '<span>' + ZS.esc(h.s) + ' <span class="' + (h.chg >= 0 ? 'il-up' : 'il-down') + '">' + ZS.pct(h.chg, 1).replace('−', '-') + '</span></span>';
+    }).join('');
+    track.innerHTML = html + html;
+  }
+
+  function filters(d) {
+    var box = document.getElementById('setup-filters');
+    var multi = d.hits.filter(function (h) { return h.set.length > 1; }).length;
+    var opts = [{ id: 'all', label: 'All', n: d.hits.length }]
+      .concat(ZS.SETUPS.map(function (s) { return { id: s.id, label: s.short, n: d.counts[s.id] || 0, color: s.color }; }))
+      .concat([{ id: 'multi', label: '2+ setups', n: multi }]);
+    box.innerHTML = opts.map(function (o) {
+      return '<button type="button" class="zs-filter" data-f="' + o.id + '" aria-pressed="' + (o.id === filter) + '">' +
+        (o.color ? '<i style="background:' + o.color + '"></i>' : '') + ZS.esc(o.label) + ' <span class="zs-n">' + ZS.int(o.n) + '</span></button>';
+    }).join('');
+    box.addEventListener('click', function (e) {
+      var b = e.target.closest('[data-f]');
+      if (!b) return;
+      filter = b.getAttribute('data-f');
+      box.querySelectorAll('[data-f]').forEach(function (x) { x.setAttribute('aria-pressed', x === b); });
+      table();
+    });
+  }
+
+  function matches(h) {
+    if (filter === 'all') return true;
+    if (filter === 'multi') return h.set.length > 1;
+    return h.set.indexOf(filter) !== -1;
+  }
+
+  function table() {
+    var rows = data.hits.filter(matches);
+    var tbody = document.getElementById('signals-tbody');
+    tbody.innerHTML = rows.slice(0, TOP_N).map(function (h) { return ZS.hitRow(h, { clickable: true }); }).join('') ||
+      '<tr><td colspan="7" class="zs-muted">Nothing matched this setup in the last scan.</td></tr>';
+    var more = document.getElementById('more-link');
+    more.textContent = rows.length > TOP_N ? 'See all ' + ZS.int(rows.length) + ' in the explorer' : 'Open the explorer';
+    more.href = '/explorer' + (filter !== 'all' ? '?setup=' + filter : '');
+  }
+
+  document.getElementById('signals-tbody').addEventListener('click', function (e) {
+    var tr = e.target.closest('tr[data-s]');
+    if (tr) location.href = '/explorer?s=' + encodeURIComponent(tr.getAttribute('data-s'));
+  });
+  document.getElementById('signals-tbody').addEventListener('keydown', function (e) {
+    var tr = e.target.closest('tr[data-s]');
+    if (tr && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); location.href = '/explorer?s=' + encodeURIComponent(tr.getAttribute('data-s')); }
+  });
+
+  function confluence(d) {
+    var multi = d.hits.filter(function (h) { return h.set.length > 1; });
+    if (!multi.length) return;
+    // three-setup charts first, then the most traded
+    multi.sort(function (a, b) { return b.set.length - a.set.length || b.dv - a.dv; });
+    document.getElementById('confluence-list').innerHTML = multi.slice(0, 5).map(function (h) {
+      return '<div class="il-cluster-item"><a class="il-cluster-ticker" href="/explorer?s=' + encodeURIComponent(h.s) + '">' + ZS.esc(h.s) + '</a>' +
+        '<span class="il-cluster-company">' + ZS.esc(h.n) + '</span>' +
+        '<span class="il-cluster-insiders">' + h.set.map(function (s) { return ZS.SETUP[s] ? ZS.SETUP[s].label : s; }).join(' + ') + '</span></div>';
+    }).join('') + (multi.length > 5 ? '<div class="il-cluster-item zs-muted"><a href="/explorer?setup=multi">+ ' + (multi.length - 5) + ' more charts on two or more setups &rarr;</a></div>' : '');
+    document.getElementById('confluence-highlight').hidden = false;
+  }
+
+  function breakdown(d) {
+    var f = d.funnel || {};
+    setLive('chart-term-status', 'LIVE');
+    ZS.animateCount(document.getElementById('bd-scanned'), f.scanned || 0, function (v) { return ZS.int(Math.round(v)); });
+    ZS.animateCount(document.getElementById('bd-matched'), f.matched || 0, function (v) { return ZS.int(Math.round(v)); });
+    var bo = d.counts.breakout_20d || 0, os = d.counts.oversold || 0;
+    setLive('bd-tilt', bo + ' : ' + os);
+    var withChg = d.hits.filter(function (h) { return h.chg != null; });
+    var adv = withChg.filter(function (h) { return h.chg > 0; }).length;
+    var advEl = document.getElementById('bd-adv');
+    advEl.textContent = withChg.length ? (adv / withChg.length * 100).toFixed(0) + '% of matches' : '—';
+
+    var scanned = f.scanned || 1;
+    ZS.hbars(document.getElementById('setup-bars'), ZS.SETUPS.map(function (s) {
+      var meta = (d.setups || []).filter(function (x) { return x.id === s.id; })[0] || {};
+      var n = d.counts[s.id] || 0;
+      return {
+        label: s.label, value: n, color: s.color,
+        tip: '<b>' + ZS.esc(s.label) + '</b><br>' + ZS.int(n) + ' charts · ' + (n / scanned * 100).toFixed(1) + '% of scanned<br><span class="zs-muted">' + ZS.esc(meta.rule || '') + '</span>'
+      };
+    }));
+
+    var bins = [];
+    for (var i = 0; i < 10; i++) bins.push({ label: String(i * 10), value: 0, lo: i * 10 });
+    d.hits.forEach(function (h) { if (h.rsi != null) bins[Math.min(9, Math.floor(h.rsi / 10))].value++; });
+    bins.forEach(function (b) { b.tip = '<b>RSI ' + b.lo + '–' + (b.lo + 10) + '</b><br>' + ZS.int(b.value) + ' matched charts'; });
+    ZS.histogram(document.getElementById('rsi-hist'), bins, [{ at: 30, label: '30' }, { at: 70, label: '70' }]);
+    var hot = d.hits.filter(function (h) { return h.rsi >= 70; }).length;
+    setLive('rsi-note', 'Dashed lines mark 30 (oversold) and 70 (overbought). ' + hot + ' matched charts are above 70 — already stretched.');
+  }
+
+  // Live breakouts + closest to their level
+  Promise.all([
+    ZS.load('alerts/today.json').catch(function () { return null; }),
+    ZS.load('alerts/candidates.json').catch(function () { return null; })
+  ]).then(function (res) {
+    var today = res[0], cand = res[1];
+    var list = document.getElementById('live-list');
+    var nyDate = ZS.nyNow().date;
+    var alerts = (today && today.alerts) || [];
+    var isToday = today && today.date === nyDate;
+    document.getElementById('live-title').textContent = today && !isToday && alerts.length
+      ? 'Breakouts · ' + ZS.dateLabel(today.date) : 'Breakouts today';
+    document.getElementById('live-count').textContent = alerts.length ? alerts.length + ' alert' + (alerts.length === 1 ? '' : 's') : '';
+    if (!alerts.length || (!isToday && !alerts.length)) {
+      var st = ZS.marketState();
+      list.innerHTML = '<div class="il-activity-empty">' + (st.open
+        ? 'No breakouts yet today. Watching ' + ((cand && cand.levels.length) || 0) + ' levels and ' + ((cand && cand.orb.length) || 0) + ' opening ranges.'
+        : 'Market closed. Breakouts show up here from 9:35 ET on the next session.') + '</div>';
+    } else {
+      list.innerHTML = alerts.slice().reverse().slice(0, 25).map(function (x) {
+        var detail = '<b>' + ZS.money(x.close) + '</b> &gt; ' + ZS.money(x.level) +
+          ' · ' + ZS.pct(x.over, 1) + (x.vol != null ? ' · ' + x.vol.toFixed(1) + '× vol' : '') + (x.gap ? ' · gap' : '');
+        return '<div class="zs-break-row">' +
+          '<span class="zs-break-time">' + ZS.esc(x.bar) + '</span>' +
+          '<a class="zs-break-sym" href="/explorer?s=' + encodeURIComponent(x.s) + '">' + ZS.esc(x.s) + '</a>' +
+          '<span class="zs-break-kind zs-k-' + x.type + '">' + (x.type === '20d' ? '20-DAY HIGH' : 'OPEN RANGE') + '</span>' +
+          '<span class="zs-break-detail" title="' + ZS.esc(x.n || '') + '">' + detail + '</span>' +
+          '<a class="zs-break-link" href="https://www.tradingview.com/chart/?symbol=' + encodeURIComponent(x.s) + '" target="_blank" rel="noopener">TradingView &#8599;</a>' +
+          '</div>';
+      }).join('');
+    }
+    if (today && today.checked_at) {
+      var t = new Date(today.checked_at);
+      document.getElementById('live-caption').textContent = 'Updated ' + t.toLocaleTimeString('en-US', { timeZone: 'America/New_York', hour: 'numeric', minute: '2-digit' }) +
+        ' ET · every 5 minutes, 9:35–4:05 ET, on free delayed data. Alerts can arrive a few minutes after the bar.';
+    }
+
+    var near = document.getElementById('near-list');
+    var rows = ((cand && cand.levels) || []).filter(function (x) { return x.dist > 0; })
+      .sort(function (a, b) { return a.dist - b.dist; }).slice(0, 10);
+    if (cand) document.getElementById('near-asof').textContent = 'from ' + ZS.dateLabel(cand.as_of, false) + ' close';
+    near.innerHTML = rows.length ? rows.map(function (x) {
+      var w = Math.max(4, 100 - x.dist * 20); // 0% away = full bar, 5%+ away = nearly empty
+      return '<div class="zs-near-row"><a class="zs-break-sym" href="/explorer?s=' + encodeURIComponent(x.s) + '">' + ZS.esc(x.s) + '</a>' +
+        '<span class="zs-near-bar" title="' + x.dist.toFixed(2) + '% below ' + ZS.money(x.level) + '"><i style="width:' + w.toFixed(0) + '%"></i></span>' +
+        '<span class="zs-near-val">' + x.dist.toFixed(1) + '% · ' + ZS.money(x.level) + '</span></div>';
+    }).join('') : '<div class="il-activity-empty">No levels set yet. They are built after each nightly scan.</div>';
+  });
+
+  // Activity log
+  ZS.load('activity.json').then(function (a) {
+    var list = document.getElementById('activity-list');
+    var ev = a.events || [];
+    if (!ev.length) { list.innerHTML = '<div class="il-activity-empty">No activity logged yet.</div>'; return; }
+    var badge = { NEW: ['zs-new', 'NEW'], DROPPED: ['zs-dropped', 'DROPPED'], CHANGED: ['zs-changed', 'CHANGED'] };
+    list.innerHTML = ev.slice(0, 30).map(function (e) {
+      var b = badge[e.type] || ['', e.type];
+      var labels = e.set.map(function (s) { return ZS.SETUP[s] ? ZS.SETUP[s].label : s; }).join(' + ');
+      var detail = e.type === 'DROPPED' ? 'no longer matches — was ' + labels
+        : e.type === 'CHANGED' ? labels + ' (was ' + e.was.map(function (s) { return ZS.SETUP[s] ? ZS.SETUP[s].label : s; }).join(' + ') + ')'
+        : labels;
+      detail += e.p != null ? ' · ' + ZS.money(e.p) : '';
+      return '<div class="il-activity-row">' +
+        '<span class="il-activity-ticker">' + ZS.esc(e.s) + '</span>' +
+        '<span class="il-activity-badge ' + b[0] + '">' + b[1] + '</span>' +
+        '<span class="il-activity-detail" title="' + ZS.esc(detail) + '">' + ZS.esc(detail) + '</span>' +
+        '<span class="il-activity-time">' + ZS.esc(e.date) + '</span></div>';
+    }).join('');
+    var dates = {};
+    ev.forEach(function (e) { dates[e.date] = 1; });
+    if (Object.keys(dates).length === 1 && a.first_run === ev[0].date) {
+      document.getElementById('activity-note').textContent = 'This is the first scan on file, so every match shows as NEW. From the next scan on, the log shows only what changed.';
+    } else {
+      document.getElementById('activity-note').textContent = 'Showing the 30 most recent events. Within a day, charts on more setups and the most traded come first.';
+    }
+  }).catch(function () {
+    document.getElementById('activity-list').innerHTML = '<div class="il-activity-empty">No activity logged yet.</div>';
+  });
+});
+</script>
+</body>
+</html>

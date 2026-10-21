@@ -1,0 +1,87 @@
+name: ZycaScan nightly scan
+
+on:
+  schedule:
+    # 21:30 UTC = 5:30 pm New York in summer (EDT), 4:30 pm in winter (EST):
+    # after the 4:00 pm close either way, so the day's daily bar is complete.
+    - cron: "30 21 * * 1-5"
+    # Backup 2 hours later. GitHub sometimes drops scheduled runs under load;
+    # the guard step makes this a no-op when the primary already published.
+    - cron: "30 23 * * 1-5"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write   # commits data/ back, which triggers the Vercel deploy
+
+concurrency:
+  group: zycascan-data
+  cancel-in-progress: false
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Decide whether to run
+        id: guard
+        run: |
+          python - <<'EOF' >> "$GITHUB_OUTPUT"
+          import datetime, json, os, sys
+          sys.path.insert(0, "scripts")
+          from common import parse_now, to_eastern, trading_day, read_json
+          ny = to_eastern(parse_now(None)).date()
+          ok, why = trading_day(ny)
+          latest = read_json("data/latest.json") or {}
+          manual = os.environ.get("GITHUB_EVENT_NAME") == "workflow_dispatch"
+          if not ok and not manual:
+              print("run=false"); print("No session today (%s)." % why, file=sys.stderr)
+          elif latest.get("as_of") == ny.isoformat() and not manual:
+              print("run=false"); print("Already published the %s scan." % ny, file=sys.stderr)
+          else:
+              print("run=true")
+          EOF
+
+      - name: Scan every US-listed stock
+        if: steps.guard.outputs.run == 'true'
+        run: |
+          python vendor/day_trader_skill/scan.py universe
+          python vendor/day_trader_skill/scan.py daily --show 5
+
+      - name: Build site data and tomorrow's breakout levels
+        if: steps.guard.outputs.run == 'true'
+        run: |
+          python scripts/build_data.py
+          python scripts/build_levels.py
+
+      - name: Post the nightly summary to Discord
+        if: steps.guard.outputs.run == 'true'
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          ZYCASCAN_URL: ${{ vars.ZYCASCAN_URL }}
+        run: python scripts/nightly_summary.py
+
+      - name: Commit data
+        if: steps.guard.outputs.run == 'true'
+        run: |
+          git config user.name "zycascan-bot"
+          git config user.email "zycascan-bot@users.noreply.github.com"
+          git add data
+          if git diff --cached --quiet; then echo "No data changes."; exit 0; fi
+          git commit -m "Nightly scan $(date -u +%Y-%m-%d)"
+          for i in 1 2 3; do git pull --rebase && git push && exit 0; sleep 5; done
+          exit 1
+
+      - name: Alert on failure
+        if: failure()
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+        run: |
+          [ -z "$DISCORD_WEBHOOK_URL" ] && exit 0
+          curl -s -H "Content-Type: application/json" -X POST "$DISCORD_WEBHOOK_URL" \
+            -d "{\"username\":\"ZycaScan\",\"content\":\"⚠️ Nightly scan failed: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}\"}"

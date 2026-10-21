@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About &mdash; ZycaScan</title>
+<meta name="description" content="What ZycaScan is, why it exists, and the legal fine print.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect x='2' y='2' width='36' height='36' rx='5' fill='%23ff5240' stroke='%23ff5240' stroke-width='1.4'/%3E%3Cpolyline points='12,13 26,13 12,27 26,27' stroke='%230a0b10' stroke-width='3.2' stroke-linecap='square' stroke-linejoin='miter' fill='none'/%3E%3Crect x='28' y='24' width='5' height='7' fill='%2335d488'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="/styles.css">
+<link rel="stylesheet" href="/scan.css">
+<script src="/app.js" defer></script>
+</head>
+<body>
+<div class="il-root" id="top">
+  <div data-zs="top"></div>
+
+  <article class="il-essay">
+    <div class="il-eyebrow">About</div>
+    <h1>A sister project to ZycaAlgo, reading charts instead of filings.</h1>
+    <p class="il-lede"><a href="https://zyca-algo.vercel.app" target="_blank" rel="noopener">ZycaAlgo</a> reads every SEC Form 4 to find insiders buying their own stock. ZycaScan asks a different question of the same market: which charts did something worth a second look on the last close?</p>
+
+    <h2>Why it exists</h2>
+    <p>Flipping through five thousand charts by hand every evening isn't realistic, and most screeners hide their rules behind a score. ZycaScan applies five plain rules to every liquid US chart, shows you exactly which rule each one met, and keeps a log of what changed from one scan to the next.</p>
+    <p>It is a research project. It's free, there's no account, and nothing on the site trades or connects to a broker.</p>
+
+    <h2>What it is not</h2>
+    <ul class="il-plain">
+      <li>Not a list of stocks to buy, and not a prediction. A setup describes what a chart did.</li>
+      <li>Not real time. Every page names the daily close it was built from.</li>
+      <li>Not a track record. Replay is a close-to-close record of past lists, with no trading rules, costs or slippage.</li>
+    </ul>
+
+    <div class="il-pullquote">A scan is a list of charts that match a rule, not a list of stocks to buy.</div>
+
+    <hr class="il-essay-divider" id="legal">
+
+    <h2>Legal</h2>
+    <p>ZycaScan is not a registered investment adviser, broker-dealer, or financial planner. Nothing on this site is investment, legal, tax, or accounting advice, or a recommendation or solicitation to buy or sell any security. You are solely responsible for your own investment decisions.</p>
+    <p>Market data is obtained from free, unofficial sources (Yahoo Finance chart data and Nasdaq Trader symbol directories) and is provided as is, without warranty of accuracy, completeness, or timeliness. Data may be delayed, missing, or incorrect.</p>
+    <p>Changes shown in Replay are hypothetical close-to-close price changes. They do not reflect any actual trading, and they exclude commissions, fees, taxes, slippage, liquidity constraints and the effect of any entry or exit rules. Past price movements do not predict future results.</p>
+    <p>ZycaScan is not affiliated with, endorsed by, or sponsored by Yahoo, Nasdaq, the New York Stock Exchange, Anthropic, or any broker. The watchlist is stored only in your browser's local storage; the site collects no personal data and uses no tracking cookies.</p>
+    <p class="il-muted">Most people who day trade lose money. Trade only with money you can afford to lose, and consider speaking with a licensed professional.</p>
+
+    <div class="il-essay-cta">
+      <a class="il-btn il-btn-primary" href="/explorer">Open the explorer</a>
+      <a class="il-btn" href="/methodology">Read the methodology</a>
+    </div>
+  </article>
+
+  <div data-zs="footer"></div>
+</div>
+</body>
+</html>

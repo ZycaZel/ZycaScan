@@ -1,0 +1,48 @@
+name: ZycaScan breakout alerts
+
+on:
+  schedule:
+    # Every 5 minutes, 13:00-21:55 UTC on weekdays. That covers the New York
+    # session in both summer (13:30-20:00 UTC) and winter (14:30-21:00 UTC);
+    # the script works out New York time and NYSE holidays itself and exits in
+    # seconds outside the session. GitHub can start scheduled runs several
+    # minutes late under load, so alerts can lag the bar by a few minutes.
+    - cron: "*/5 13-21 * * 1-5"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write   # commits data/alerts/today.json when a new breakout fires
+
+concurrency:
+  group: zycascan-breakouts
+  cancel-in-progress: false
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Check for breakouts
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          ZYCASCAN_URL: ${{ vars.ZYCASCAN_URL }}
+          # optional read-only fallback data source (Alpaca market data, free IEX feed)
+          APCA_API_KEY_ID: ${{ secrets.APCA_API_KEY_ID }}
+          APCA_API_SECRET_KEY: ${{ secrets.APCA_API_SECRET_KEY }}
+        run: python scripts/breakout_watch.py
+
+      - name: Publish today's alerts to the site
+        run: |
+          git add data/alerts/today.json 2>/dev/null || exit 0
+          if git diff --cached --quiet; then echo "No new alerts."; exit 0; fi
+          git config user.name "zycascan-bot"
+          git config user.email "zycascan-bot@users.noreply.github.com"
+          git commit -m "Breakout alerts $(date -u +%Y-%m-%dT%H:%MZ)"
+          for i in 1 2 3; do git pull --rebase && git push && exit 0; sleep 5; done
+          exit 1

@@ -1,0 +1,8 @@
+# Your own breakout-alert list: one ticker a line, # starts a comment.
+# These are always watched (first in line) for:
+#   - a 5-minute close above their 20-day high, and
+#   - an opening-range breakout after 9:45 ET.
+# Edit this file in the repo; the nightly job picks it up for the next session.
+TSLA
+NVDA
+AAPL

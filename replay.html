@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Replay &mdash; ZycaScan</title>
+<meta name="description" content="Replay past ZycaScan scans: what each one listed, and where those names have closed since.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect x='2' y='2' width='36' height='36' rx='5' fill='%23ff5240' stroke='%23ff5240' stroke-width='1.4'/%3E%3Cpolyline points='12,13 26,13 12,27 26,27' stroke='%230a0b10' stroke-width='3.2' stroke-linecap='square' stroke-linejoin='miter' fill='none'/%3E%3Crect x='28' y='24' width='5' height='7' fill='%2335d488'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="/styles.css">
+<link rel="stylesheet" href="/scan.css">
+<script src="/app.js" defer></script>
+</head>
+<body>
+<div class="il-root" id="top">
+  <div data-zs="top"></div>
+
+  <header class="zs-pagehead">
+    <div class="il-container">
+      <div class="il-eyebrow">Replay &middot; a record, not a backtest</div>
+      <h1>What each scan listed, and where it closed since.</h1>
+      <p>Pick a past scan. Every name it listed is shown with the close it was flagged at and the latest close. Close to close, no costs, no slippage, no entries or exits &mdash; just the record, kept for every scan that has run.</p>
+    </div>
+  </header>
+
+  <section class="zs-body">
+    <div class="il-container">
+      <div class="zs-filters">
+        <select class="zs-input" id="run" aria-label="Scan to replay"></select>
+        <select class="zs-input" id="setup" aria-label="Setup">
+          <option value="all">All setups</option>
+        </select>
+        <span class="zs-count" id="count"></span>
+      </div>
+      <div id="notice"></div>
+      <dl class="zs-stat-row" id="stats">
+        <div><dt>Charts listed</dt><dd id="st-n">&mdash;</dd></div>
+        <div><dt>Higher since</dt><dd id="st-up">&mdash;</dd></div>
+        <div><dt>Median change</dt><dd id="st-med">&mdash;</dd></div>
+        <div><dt>Sessions since</dt><dd id="st-days">&mdash;</dd></div>
+      </dl>
+      <div class="il-docstamp" style="margin-bottom:20px">
+        <div class="il-term-bar">
+          <span class="il-term-dots"><span></span><span></span><span></span></span>
+          <span class="il-term-title">zycascan &mdash; replay.by-setup</span>
+          <span class="il-term-status" id="rp-status">LOADING</span>
+        </div>
+        <div class="zs-panel"><h3>Median change since flagged, by setup</h3><div id="by-setup"></div>
+          <p class="zs-panel-note">Medians over the charts each setup listed in this scan. A handful of scans is far too few to say anything about a setup.</p></div>
+      </div>
+      <div class="il-tablewrap">
+        <table class="il-signals">
+          <thead>
+            <tr>
+              <th class="zs-sort" data-k="s">Ticker</th>
+              <th class="zs-col-name zs-sort" data-k="n">Company</th>
+              <th>Setups then</th>
+              <th class="il-num zs-sort" data-k="p">Flagged close</th>
+              <th class="il-num zs-sort" data-k="now">Latest close</th>
+              <th class="il-num zs-sort" data-k="chg" aria-sort="descending">Change</th>
+            </tr>
+          </thead>
+          <tbody id="tbody"><tr><td colspan="6" class="zs-muted">Loading&hellip;</td></tr></tbody>
+        </table>
+        <div class="zs-more" id="more" hidden><button type="button" class="il-btn" id="more-btn">Show more</button></div>
+      </div>
+      <div class="il-caption">
+        <span id="caption"></span>
+        <span class="il-tag">NOT A BACKTEST &middot; NOT A TRACK RECORD</span>
+      </div>
+    </div>
+  </section>
+
+  <div data-zs="footer"></div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var ZS = window.ZS;
+  var PAGE = 80;
+  var rp = null, run = null, setup = 'all', sort = 'chg', dir = -1, shown = PAGE, dates = [];
+
+  var setupSel = document.getElementById('setup');
+  setupSel.innerHTML += ZS.SETUPS.map(function (s) { return '<option value="' + s.id + '">' + ZS.esc(s.label) + '</option>'; }).join('');
+
+  Promise.all([ZS.load('replay.json'), ZS.load('latest.json').catch(function () { return null; })]).then(function (res) {
+    rp = res[0];
+    dates = (res[1] && res[1].dates) || [];
+    var sel = document.getElementById('run');
+    sel.innerHTML = rp.runs.map(function (r, i) {
+      return '<option value="' + i + '">Scan of ' + ZS.dateLabel(r.as_of) + ' · ' + ZS.int(r.funnel.matched) + ' charts</option>';
+    }).join('');
+    // default to the newest scan that already has a later close to compare with
+    var first = 0;
+    for (var i = 0; i < rp.runs.length; i++) { if (rp.price_date && rp.runs[i].as_of < rp.price_date) { first = i; break; } }
+    sel.value = first;
+    pick(first);
+    sel.addEventListener('change', function () { shown = PAGE; pick(+sel.value); });
+  }).catch(function () {
+    document.getElementById('tbody').innerHTML = '<tr><td colspan="6" class="zs-muted">No scans on file yet.</td></tr>';
+  });
+
+  setupSel.addEventListener('change', function () { setup = setupSel.value; shown = PAGE; render(); });
+  document.getElementById('more-btn').addEventListener('click', function () { shown += PAGE; render(); });
+  document.querySelectorAll('th.zs-sort').forEach(function (th) {
+    th.tabIndex = 0;
+    function go() {
+      var k = th.getAttribute('data-k');
+      if (sort === k) dir *= -1; else { sort = k; dir = (k === 's' || k === 'n') ? 1 : -1; }
+      document.querySelectorAll('th.zs-sort').forEach(function (x) { x.removeAttribute('aria-sort'); });
+      th.setAttribute('aria-sort', dir === 1 ? 'ascending' : 'descending');
+      render();
+    }
+    th.addEventListener('click', go);
+    th.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); } });
+  });
+
+  function median(a) {
+    if (!a.length) return null;
+    var s = a.slice().sort(function (x, y) { return x - y; }), m = Math.floor(s.length / 2);
+    return s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2;
+  }
+
+  function pick(i) {
+    run = rp.runs[i];
+    var later = rp.price_date && run.as_of < rp.price_date;
+    document.getElementById('notice').innerHTML = later ? '' :
+      '<div class="zs-notice">This is the newest scan, flagged at the ' + ZS.dateLabel(run.as_of) + ' close. There is no later close to compare with yet &mdash; ' +
+      'the change column fills in after the next session closes and the data is rebuilt.' +
+      (rp.runs.length === 1 ? ' It is also the only scan on file so far.' : '') + '</div>';
+    document.getElementById('rp-status').textContent = later ? 'RECORD' : 'WAITING';
+    // sessions between the flag and the latest close, from the shared date axis when it covers both
+    var a = dates.indexOf(run.as_of), b = dates.indexOf(rp.price_date);
+    document.getElementById('st-days').textContent = later ? (a !== -1 && b !== -1 ? String(b - a) : 'since ' + ZS.dateLabel(rp.price_date, false)) : '0';
+    document.getElementById('caption').textContent = 'Flagged at the ' + ZS.dateLabel(run.as_of) + ' close' +
+      (later ? ' · latest close ' + ZS.dateLabel(rp.price_date) : '') + ' · Yahoo daily closes, unadjusted for anything after the flag';
+    render();
+  }
+
+  function render() {
+    var rows = run.hits.filter(function (h) { return setup === 'all' || h.set.indexOf(setup) !== -1; });
+    var ch = rows.filter(function (h) { return h.chg != null; }).map(function (h) { return h.chg; });
+    document.getElementById('st-n').textContent = ZS.int(rows.length);
+    var up = ch.filter(function (c) { return c > 0; }).length;
+    document.getElementById('st-up').textContent = ch.length ? up + ' of ' + ch.length : '—';
+    var med = median(ch);
+    var medEl = document.getElementById('st-med');
+    medEl.textContent = ZS.pct(med);
+    medEl.className = ZS.dirClass(med);
+    document.getElementById('count').textContent = ZS.int(rows.length) + ' charts';
+
+    // by-setup medians (always over the whole scan, not the filter)
+    var bars = ZS.SETUPS.map(function (s) {
+      var c = run.hits.filter(function (h) { return h.set.indexOf(s.id) !== -1 && h.chg != null; }).map(function (h) { return h.chg; });
+      return { s: s, n: c.length, med: median(c) };
+    });
+    var el = document.getElementById('by-setup');
+    if (!bars.some(function (b) { return b.n; })) {
+      el.innerHTML = '<p class="zs-empty">Nothing to compare yet — no later close for this scan.</p>';
+    } else {
+      var maxAbs = Math.max.apply(null, bars.map(function (b) { return Math.abs(b.med || 0); })) || 1;
+      el.innerHTML = '<div class="zs-hbars">' + bars.map(function (b) {
+        var w = b.med == null ? 0 : Math.abs(b.med) / maxAbs * 50;
+        var left = b.med != null && b.med < 0 ? 50 - w : 50;
+        return '<div class="zs-hbar"><span class="zs-hbar-label">' + ZS.esc(b.s.label) + '</span>' +
+          '<span class="zs-hbar-track" style="position:relative;background:linear-gradient(90deg,transparent calc(50% - 0.5px),rgba(255,255,255,0.22) calc(50% - 0.5px),rgba(255,255,255,0.22) calc(50% + 0.5px),transparent calc(50% + 0.5px))">' +
+          '<span class="zs-hbar-fill" style="position:absolute;top:0;left:' + left + '%;width:' + w + '%;background:' + b.s.color + ';border-radius:' + (b.med < 0 ? '4px 0 0 4px' : '0 4px 4px 0') + '"></span></span>' +
+          '<span class="zs-hbar-val ' + ZS.dirClass(b.med) + '">' + ZS.pct(b.med, 1) + ' <span class="zs-muted">n=' + b.n + '</span></span></div>';
+      }).join('') + '</div>';
+    }
+
+    rows.sort(function (x, y) {
+      var a = x[sort], b = y[sort];
+      if (a == null && b == null) return 0;
+      if (a == null) return 1;
+      if (b == null) return -1;
+      return (typeof a === 'string' ? a.localeCompare(b) : a - b) * dir;
+    });
+    document.getElementById('tbody').innerHTML = rows.slice(0, shown).map(function (h) {
+      return '<tr data-s="' + ZS.esc(h.s) + '"><td class="il-ticker-cell"><a href="/explorer?s=' + encodeURIComponent(h.s) + '">' + ZS.esc(h.s) + '</a></td>' +
+        '<td class="zs-name">' + ZS.esc(h.n) + '</td>' +
+        '<td class="zs-chips">' + ZS.chips(h.set, { short: true }) + '</td>' +
+        '<td class="il-num">' + ZS.money(h.p) + '</td>' +
+        '<td class="il-num">' + ZS.money(h.now) + '</td>' +
+        '<td class="il-num ' + ZS.dirClass(h.chg) + '">' + ZS.pct(h.chg) + '</td></tr>';
+    }).join('') || '<tr><td colspan="6" class="zs-muted">Nothing listed for this setup in this scan.</td></tr>';
+    document.getElementById('more').hidden = rows.length <= shown;
+    document.getElementById('more-btn').textContent = 'Show ' + Math.min(PAGE, rows.length - shown) + ' more';
+  }
+});
+</script>
+</body>
+</html>
