@@ -1,5 +1,18 @@
 [
  {
+  "as_of": "2026-11-09",
+  "matched": 734,
+  "scanned": 1626,
+  "confluence": 72,
+  "counts": {
+   "breakout_20d": 376,
+   "bull_flag": 72,
+   "reclaim_ma20": 201,
+   "oversold": 67,
+   "oversold_bounce": 90
+  }
+ },
+ {
   "as_of": "2026-11-06",
   "matched": 433,
   "scanned": 1656,
