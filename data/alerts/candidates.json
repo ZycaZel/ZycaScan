@@ -1,32 +1,29 @@
 {
- "as_of": "2026-11-12",
- "generated_at": "2026-11-13T02:08:02Z",
+ "as_of": "2026-11-13",
+ "generated_at": "2026-11-14T01:43:45Z",
  "lookback": 20,
  "levels": [
   {
    "s": "TSLA",
    "n": "Tesla, Inc.",
-   "set": [
-    "reclaim_ma20"
-   ],
+   "set": [],
    "why": "your list",
    "level": 414.23,
    "level_day": "2026-11-02",
-   "close": 390.84,
-   "dist": 5.98
+   "close": 390.22,
+   "dist": 6.15
   },
   {
    "s": "NVDA",
    "n": "NVIDIA Corporation",
    "set": [
-    "oversold",
-    "oversold_bounce"
+    "oversold"
    ],
    "why": "your list",
    "level": 222.19,
    "level_day": "2026-10-21",
-   "close": 173.73,
-   "dist": 27.89
+   "close": 162.85,
+   "dist": 36.44
   },
   {
    "s": "AAPL",
@@ -35,49 +32,23 @@
     "breakout_20d"
    ],
    "why": "your list",
-   "level": 355.91,
-   "level_day": "2026-11-11",
-   "close": 355.63,
-   "dist": 0.08
+   "level": 360.83,
+   "level_day": "2026-11-13",
+   "close": 356.27,
+   "dist": 1.28
   },
   {
-   "s": "FISV",
-   "n": "Fiserv, Inc.",
+   "s": "EW",
+   "n": "Edwards Lifesciences Corporation",
    "set": [
     "breakout_20d",
     "bull_flag"
    ],
    "why": "2+ setups",
-   "level": 64.06,
-   "level_day": "2026-11-09",
-   "close": 63.9,
-   "dist": 0.25
-  },
-  {
-   "s": "ALNY",
-   "n": "Alnylam Pharmaceuticals, Inc.",
-   "set": [
-    "oversold",
-    "oversold_bounce"
-   ],
-   "why": "2+ setups",
-   "level": 238.96,
-   "level_day": "2026-10-20",
-   "close": 159.85,
-   "dist": 49.49
-  },
-  {
-   "s": "ICE",
-   "n": "Intercontinental Exchange Inc.",
-   "set": [
-    "breakout_20d",
-    "bull_flag"
-   ],
-   "why": "2+ setups",
-   "level": 180.71,
-   "level_day": "2026-11-11",
-   "close": 180.59,
-   "dist": 0.07
+   "level": 107.69,
+   "level_day": "2026-11-13",
+   "close": 107.15,
+   "dist": 0.5
   },
   {
    "s": "AXON",
@@ -89,73 +60,34 @@
    "why": "2+ setups",
    "level": 439.76,
    "level_day": "2026-11-02",
-   "close": 315.42,
+   "close": 315.43,
    "dist": 39.42
   },
   {
-   "s": "CMCSA",
-   "n": "Comcast Corporation",
+   "s": "CLX",
+   "n": "Clorox Company (The)",
    "set": [
     "breakout_20d",
     "bull_flag"
    ],
    "why": "2+ setups",
-   "level": 25.3,
-   "level_day": "2026-11-05",
-   "close": 25.02,
-   "dist": 1.12
+   "level": 110.31,
+   "level_day": "2026-11-13",
+   "close": 109.46,
+   "dist": 0.78
   },
   {
-   "s": "WCN",
-   "n": "Waste Connections, Inc.",
-   "set": [
-    "breakout_20d",
-    "bull_flag"
-   ],
-   "why": "2+ setups",
-   "level": 195.34,
-   "level_day": "2026-11-05",
-   "close": 192.23,
-   "dist": 1.62
-  },
-  {
-   "s": "EW",
-   "n": "Edwards Lifesciences Corporation",
-   "set": [
-    "breakout_20d",
-    "bull_flag"
-   ],
-   "why": "2+ setups",
-   "level": 106.05,
-   "level_day": "2026-11-11",
-   "close": 105.81,
-   "dist": 0.23
-  },
-  {
-   "s": "TEAM",
-   "n": "Atlassian Corporation",
+   "s": "PBR",
+   "n": "Petroleo Brasileiro S.A. Petrobras ADS",
    "set": [
     "oversold",
     "oversold_bounce"
    ],
    "why": "2+ setups",
-   "level": 229.96,
-   "level_day": "2026-10-22",
-   "close": 152.44,
-   "dist": 50.85
-  },
-  {
-   "s": "SPG",
-   "n": "Simon Property Group, Inc.",
-   "set": [
-    "breakout_20d",
-    "bull_flag"
-   ],
-   "why": "2+ setups",
-   "level": 235.37,
-   "level_day": "2026-11-11",
-   "close": 234.75,
-   "dist": 0.26
+   "level": 26.39,
+   "level_day": "2026-10-23",
+   "close": 18.34,
+   "dist": 43.89
   },
   {
    "s": "DT",
@@ -167,34 +99,47 @@
    "why": "2+ setups",
    "level": 65.82,
    "level_day": "2026-10-26",
-   "close": 44.24,
-   "dist": 48.78
+   "close": 44.9,
+   "dist": 46.59
   },
   {
-   "s": "VLTO",
-   "n": "Veralto Corp",
+   "s": "CROX",
+   "n": "Crocs, Inc.",
    "set": [
     "breakout_20d",
     "bull_flag"
    ],
    "why": "2+ setups",
-   "level": 119.03,
-   "level_day": "2026-11-05",
-   "close": 118.77,
-   "dist": 0.21
+   "level": 164.13,
+   "level_day": "2026-11-13",
+   "close": 163.72,
+   "dist": 0.25
   },
   {
-   "s": "LUV",
-   "n": "Southwest Airlines Company",
+   "s": "HWC",
+   "n": "Hancock Whitney Corporation",
+   "set": [
+    "oversold",
+    "oversold_bounce"
+   ],
+   "why": "2+ setups",
+   "level": 75.61,
+   "level_day": "2026-11-04",
+   "close": 65.28,
+   "dist": 15.82
+  },
+  {
+   "s": "INSM",
+   "n": "Insmed Incorporated",
    "set": [
     "breakout_20d",
     "bull_flag"
    ],
    "why": "2+ setups",
-   "level": 47.01,
-   "level_day": "2026-11-09",
-   "close": 46.48,
-   "dist": 1.14
+   "level": 121.54,
+   "level_day": "2026-11-13",
+   "close": 121.16,
+   "dist": 0.31
   },
   {
    "s": "IONS",
@@ -206,47 +151,8 @@
    "why": "2+ setups",
    "level": 45.84,
    "level_day": "2026-10-29",
-   "close": 28.33,
-   "dist": 61.81
-  },
-  {
-   "s": "PCOR",
-   "n": "Procore Technologies, Inc.",
-   "set": [
-    "breakout_20d",
-    "bull_flag"
-   ],
-   "why": "2+ setups",
-   "level": 79.8,
-   "level_day": "2026-11-05",
-   "close": 77.52,
-   "dist": 2.94
-  },
-  {
-   "s": "SNY",
-   "n": "Sanofi",
-   "set": [
-    "breakout_20d",
-    "bull_flag"
-   ],
-   "why": "2+ setups",
-   "level": 48.68,
-   "level_day": "2026-11-10",
-   "close": 48.43,
-   "dist": 0.52
-  },
-  {
-   "s": "MGM",
-   "n": "MGM Resorts International",
-   "set": [
-    "breakout_20d",
-    "bull_flag"
-   ],
-   "why": "2+ setups",
-   "level": 33.5,
-   "level_day": "2026-11-11",
-   "close": 33.47,
-   "dist": 0.09
+   "close": 29.06,
+   "dist": 57.74
   },
   {
    "s": "ARWR",
@@ -258,8 +164,47 @@
    "why": "2+ setups",
    "level": 62.0,
    "level_day": "2026-11-04",
-   "close": 49.36,
-   "dist": 25.61
+   "close": 47.78,
+   "dist": 29.76
+  },
+  {
+   "s": "MGM",
+   "n": "MGM Resorts International",
+   "set": [
+    "breakout_20d",
+    "bull_flag"
+   ],
+   "why": "2+ setups",
+   "level": 33.67,
+   "level_day": "2026-11-12",
+   "close": 33.49,
+   "dist": 0.54
+  },
+  {
+   "s": "TBBB",
+   "n": "BBB Foods Inc.",
+   "set": [
+    "breakout_20d",
+    "bull_flag"
+   ],
+   "why": "2+ setups",
+   "level": 68.39,
+   "level_day": "2026-11-12",
+   "close": 68.0,
+   "dist": 0.57
+  },
+  {
+   "s": "PBR.A",
+   "n": "Petroleo Brasileiro S.A. Petrobras",
+   "set": [
+    "oversold",
+    "oversold_bounce"
+   ],
+   "why": "2+ setups",
+   "level": 23.79,
+   "level_day": "2026-10-23",
+   "close": 16.03,
+   "dist": 48.41
   },
   {
    "s": "DOX",
@@ -271,34 +216,21 @@
    "why": "2+ setups",
    "level": 64.58,
    "level_day": "2026-11-02",
-   "close": 43.12,
-   "dist": 49.77
+   "close": 44.79,
+   "dist": 44.18
   },
   {
-   "s": "VIST",
-   "n": "Vista Energy S.A.B. de C.V.",
-   "set": [
-    "oversold",
-    "oversold_bounce"
-   ],
-   "why": "2+ setups",
-   "level": 75.01,
-   "level_day": "2026-10-23",
-   "close": 55.97,
-   "dist": 34.02
-  },
-  {
-   "s": "SONO",
-   "n": "Sonos, Inc.",
+   "s": "ADMA",
+   "n": "ADMA Biologics Inc",
    "set": [
     "breakout_20d",
-    "reclaim_ma20"
+    "bull_flag"
    ],
    "why": "2+ setups",
-   "level": 19.18,
-   "level_day": "2026-11-11",
-   "close": 19.06,
-   "dist": 0.63
+   "level": 13.77,
+   "level_day": "2026-11-05",
+   "close": 13.24,
+   "dist": 4.0
   },
   {
    "s": "YPF",
@@ -308,217 +240,191 @@
     "oversold_bounce"
    ],
    "why": "2+ setups",
-   "level": 52.25,
-   "level_day": "2026-10-16",
-   "close": 37.36,
-   "dist": 39.86
+   "level": 52.12,
+   "level_day": "2026-10-19",
+   "close": 37.9,
+   "dist": 37.52
   },
   {
-   "s": "VCYT",
-   "n": "Veracyte, Inc.",
+   "s": "AD",
+   "n": "Array Digital Infrastructure, Inc.",
    "set": [
     "oversold",
     "oversold_bounce"
    ],
    "why": "2+ setups",
-   "level": 52.76,
+   "level": 34.42,
    "level_day": "2026-11-04",
-   "close": 25.11,
-   "dist": 110.1
+   "close": 27.84,
+   "dist": 23.64
   },
   {
-   "s": "CLMT",
-   "n": "Calumet, Inc",
-   "set": [
-    "oversold",
-    "oversold_bounce"
-   ],
-   "why": "2+ setups",
-   "level": 58.74,
-   "level_day": "2026-10-16",
-   "close": 35.89,
-   "dist": 63.67
-  },
-  {
-   "s": "BTU",
-   "n": "Peabody Energy Corporation",
-   "set": [
-    "oversold",
-    "oversold_bounce"
-   ],
-   "why": "2+ setups",
-   "level": 24.65,
-   "level_day": "2026-10-16",
-   "close": 16.91,
-   "dist": 45.77
-  },
-  {
-   "s": "SLM",
-   "n": "SLM Corporation",
-   "set": [
-    "oversold",
-    "oversold_bounce"
-   ],
-   "why": "2+ setups",
-   "level": 23.04,
-   "level_day": "2026-10-21",
-   "close": 16.91,
-   "dist": 36.25
-  },
-  {
-   "s": "AESI",
-   "n": "Atlas Energy Solutions Inc.",
-   "set": [
-    "oversold",
-    "oversold_bounce"
-   ],
-   "why": "2+ setups",
-   "level": 10.9,
-   "level_day": "2026-10-15",
-   "close": 5.58,
-   "dist": 95.34
-  },
-  {
-   "s": "UGP",
-   "n": "Ultrapar Participacoes S.A. (New)",
-   "set": [
-    "oversold",
-    "oversold_bounce"
-   ],
-   "why": "2+ setups",
-   "level": 8.06,
-   "level_day": "2026-10-21",
-   "close": 5.43,
-   "dist": 48.43
-  },
-  {
-   "s": "UPBD",
-   "n": "Upbound Group, Inc.",
+   "s": "PAR",
+   "n": "PAR Technology Corporation",
    "set": [
     "breakout_20d",
     "bull_flag"
    ],
    "why": "2+ setups",
-   "level": 25.36,
-   "level_day": "2026-11-11",
-   "close": 25.27,
-   "dist": 0.36
+   "level": 22.5,
+   "level_day": "2026-11-13",
+   "close": 22.48,
+   "dist": 0.09
   },
   {
-   "s": "SNDX",
-   "n": "Syndax Pharmaceuticals, Inc.",
+   "s": "CHA",
+   "n": "Chagee Holdings Limited",
+   "set": [
+    "breakout_20d",
+    "reclaim_ma20"
+   ],
+   "why": "2+ setups",
+   "level": 13.75,
+   "level_day": "2026-11-12",
+   "close": 13.51,
+   "dist": 1.78
+  },
+  {
+   "s": "HLF",
+   "n": "Herbalife Ltd.",
+   "set": [
+    "breakout_20d",
+    "bull_flag"
+   ],
+   "why": "2+ setups",
+   "level": 15.99,
+   "level_day": "2026-11-13",
+   "close": 15.96,
+   "dist": 0.19
+  },
+  {
+   "s": "IVR",
+   "n": "INVESCO MORTGAGE CAPITAL INC",
    "set": [
     "oversold",
     "oversold_bounce"
    ],
    "why": "2+ setups",
-   "level": 14.69,
+   "level": 5.64,
+   "level_day": "2026-11-05",
+   "close": 5.04,
+   "dist": 11.9
+  },
+  {
+   "s": "OFRM",
+   "n": "Once Upon a Farm, PBC",
+   "set": [
+    "oversold",
+    "oversold_bounce"
+   ],
+   "why": "2+ setups",
+   "level": 17.99,
+   "level_day": "2026-10-20",
+   "close": 10.18,
+   "dist": 76.72
+  },
+  {
+   "s": "SUZ",
+   "n": "Suzano S.A.",
+   "set": [
+    "breakout_20d",
+    "bull_flag"
+   ],
+   "why": "2+ setups",
+   "level": 9.89,
+   "level_day": "2026-11-12",
+   "close": 9.82,
+   "dist": 0.71
+  },
+  {
+   "s": "MFA",
+   "n": "MFA Financial, Inc.",
+   "set": [
+    "oversold",
+    "oversold_bounce"
+   ],
+   "why": "2+ setups",
+   "level": 6.87,
    "level_day": "2026-11-04",
-   "close": 9.59,
-   "dist": 53.18
+   "close": 5.82,
+   "dist": 18.04
   },
   {
-   "s": "BRSL",
-   "n": "Brightstar Lottery PLC Trading under the Legal Name to begin at the market open on July 21, 2025.",
-   "set": [
-    "breakout_20d",
-    "reclaim_ma20"
-   ],
-   "why": "2+ setups",
-   "level": 10.35,
-   "level_day": "2026-11-11",
-   "close": 10.28,
-   "dist": 0.68
-  },
-  {
-   "s": "RSKD",
-   "n": "Riskified Ltd.",
-   "set": [
-    "breakout_20d",
-    "reclaim_ma20"
-   ],
-   "why": "2+ setups",
-   "level": 11.13,
-   "level_day": "2026-11-11",
-   "close": 10.37,
-   "dist": 7.33
-  },
-  {
-   "s": "AVTX",
-   "n": "Avalo Therapeutics, Inc.",
-   "set": [
-    "reclaim_ma20",
-    "oversold_bounce"
-   ],
-   "why": "2+ setups",
-   "level": 13.18,
-   "level_day": "2026-10-21",
-   "close": 8.51,
-   "dist": 54.88
-  },
-  {
-   "s": "RSI",
-   "n": "Rush Street Interactive, Inc.",
+   "s": "NAVI",
+   "n": "Navient Holdings, Inc.",
    "set": [
     "oversold",
     "oversold_bounce"
    ],
    "why": "2+ setups",
-   "level": 19.16,
-   "level_day": "2026-10-15",
-   "close": 12.24,
-   "dist": 56.54
-  },
-  {
-   "s": "NRIX",
-   "n": "Nurix Therapeutics, Inc.",
-   "set": [
-    "oversold",
-    "oversold_bounce"
-   ],
-   "why": "2+ setups",
-   "level": 27.99,
-   "level_day": "2026-10-29",
-   "close": 16.33,
-   "dist": 71.4
-  },
-  {
-   "s": "IMXI",
-   "n": "International Money Express, Inc.",
-   "set": [
-    "oversold",
-    "oversold_bounce"
-   ],
-   "why": "2+ setups",
-   "level": 10.98,
+   "level": 9.73,
    "level_day": "2026-10-16",
-   "close": 6.89,
-   "dist": 59.36
+   "close": 6.14,
+   "dist": 58.47
   },
   {
-   "s": "XIFR",
-   "n": "XPLR Infrastructure, LP",
+   "s": "OXLC",
+   "n": "Oxford Lane Capital Corp. - Closed End Fund",
    "set": [
     "oversold",
     "oversold_bounce"
    ],
    "why": "2+ setups",
-   "level": 9.97,
-   "level_day": "2026-10-16",
-   "close": 7.36,
-   "dist": 35.39
+   "level": 7.9,
+   "level_day": "2026-10-19",
+   "close": 5.04,
+   "dist": 56.75
   },
   {
-   "s": "HD",
-   "n": "Home Depot, Inc. (The)",
+   "s": "PAYS",
+   "n": "Paysign, Inc.",
+   "set": [
+    "oversold",
+    "oversold_bounce"
+   ],
+   "why": "2+ setups",
+   "level": 16.15,
+   "level_day": "2026-10-20",
+   "close": 9.52,
+   "dist": 69.64
+  },
+  {
+   "s": "MNTN",
+   "n": "MNTN, Inc.",
+   "set": [
+    "oversold",
+    "oversold_bounce"
+   ],
+   "why": "2+ setups",
+   "level": 10.73,
+   "level_day": "2026-11-04",
+   "close": 4.99,
+   "dist": 115.13
+  },
+  {
+   "s": "ADAM",
+   "n": "Adamas Trust, Inc.",
+   "set": [
+    "oversold",
+    "oversold_bounce"
+   ],
+   "why": "2+ setups",
+   "level": 7.99,
+   "level_day": "2026-10-26",
+   "close": 5.25,
+   "dist": 52.19
+  },
+  {
+   "s": "APP",
+   "n": "Applovin Corporation",
    "set": [
     "bull_flag"
    ],
    "why": "bull flag",
-   "level": 362.44,
-   "level_day": "2026-11-05",
-   "close": 351.31,
-   "dist": 3.17
+   "level": 413.6,
+   "level_day": "2026-11-11",
+   "close": 393.68,
+   "dist": 5.06
   },
   {
    "s": "MCD",
@@ -529,32 +435,20 @@
    "why": "bull flag",
    "level": 283.53,
    "level_day": "2026-11-10",
-   "close": 274.8,
-   "dist": 3.18
+   "close": 271.97,
+   "dist": 4.25
   },
   {
-   "s": "ABT",
-   "n": "Abbott Laboratories",
+   "s": "GE",
+   "n": "GE Aerospace",
    "set": [
     "bull_flag"
    ],
    "why": "bull flag",
-   "level": 117.07,
-   "level_day": "2026-11-05",
-   "close": 109.29,
-   "dist": 7.12
-  },
-  {
-   "s": "NEE",
-   "n": "NextEra Energy, Inc.",
-   "set": [
-    "bull_flag"
-   ],
-   "why": "bull flag",
-   "level": 90.04,
-   "level_day": "2026-11-05",
-   "close": 85.99,
-   "dist": 4.71
+   "level": 343.59,
+   "level_day": "2026-11-12",
+   "close": 331.81,
+   "dist": 3.55
   },
   {
    "s": "LOW",
@@ -563,118 +457,58 @@
     "bull_flag"
    ],
    "why": "bull flag",
-   "level": 234.75,
-   "level_day": "2026-11-05",
-   "close": 231.6,
-   "dist": 1.36
+   "level": 235.0,
+   "level_day": "2026-11-12",
+   "close": 227.73,
+   "dist": 3.19
   },
   {
-   "s": "ISRG",
-   "n": "Intuitive Surgical, Inc.",
+   "s": "U",
+   "n": "Unity Software Inc.",
    "set": [
     "bull_flag"
    ],
    "why": "bull flag",
-   "level": 485.85,
-   "level_day": "2026-11-04",
-   "close": 449.53,
-   "dist": 8.08
+   "level": 54.26,
+   "level_day": "2026-11-09",
+   "close": 50.18,
+   "dist": 8.14
   },
   {
-   "s": "SOFI",
-   "n": "SoFi Technologies, Inc.",
+   "s": "HWM",
+   "n": "Howmet Aerospace Inc.",
    "set": [
     "bull_flag"
    ],
    "why": "bull flag",
-   "level": 17.74,
-   "level_day": "2026-11-04",
-   "close": 16.27,
-   "dist": 9.04
+   "level": 226.05,
+   "level_day": "2026-11-13",
+   "close": 220.82,
+   "dist": 2.37
   },
   {
-   "s": "GILD",
-   "n": "Gilead Sciences, Inc.",
+   "s": "FISV",
+   "n": "Fiserv, Inc.",
    "set": [
     "bull_flag"
    ],
    "why": "bull flag",
-   "level": 176.58,
-   "level_day": "2026-11-05",
-   "close": 169.73,
-   "dist": 4.04
+   "level": 64.24,
+   "level_day": "2026-11-12",
+   "close": 63.78,
+   "dist": 0.72
   },
   {
-   "s": "MMM",
-   "n": "3M Company",
+   "s": "CMG",
+   "n": "Chipotle Mexican Grill, Inc.",
    "set": [
     "bull_flag"
    ],
    "why": "bull flag",
-   "level": 196.9,
-   "level_day": "2026-11-05",
-   "close": 188.88,
-   "dist": 4.25
-  },
-  {
-   "s": "MDT",
-   "n": "Medtronic plc.",
-   "set": [
-    "bull_flag"
-   ],
-   "why": "bull flag",
-   "level": 106.2,
-   "level_day": "2026-11-05",
-   "close": 101.61,
-   "dist": 4.52
-  },
-  {
-   "s": "SPOT",
-   "n": "Spotify Technology S.A.",
-   "set": [
-    "bull_flag"
-   ],
-   "why": "bull flag",
-   "level": 635.0,
-   "level_day": "2026-11-05",
-   "close": 609.12,
-   "dist": 4.25
-  },
-  {
-   "s": "SBUX",
-   "n": "Starbucks Corporation",
-   "set": [
-    "bull_flag"
-   ],
-   "why": "bull flag",
-   "level": 111.5,
-   "level_day": "2026-11-05",
-   "close": 109.89,
-   "dist": 1.47
-  },
-  {
-   "s": "CCL",
-   "n": "Carnival Corporation Ltd.",
-   "set": [
-    "bull_flag"
-   ],
-   "why": "bull flag",
-   "level": 31.57,
-   "level_day": "2026-11-05",
-   "close": 30.68,
-   "dist": 2.9
-  },
-  {
-   "s": "UPS",
-   "n": "United Parcel Service, Inc.",
-   "set": [
-    "bull_flag"
-   ],
-   "why": "bull flag",
-   "level": 114.97,
-   "level_day": "2026-11-05",
-   "close": 112.45,
-   "dist": 2.24
+   "level": 36.69,
+   "level_day": "2026-11-12",
+   "close": 35.28,
+   "dist": 4.0
   },
   {
    "s": "CRH",
@@ -685,44 +519,20 @@
    "why": "bull flag",
    "level": 100.17,
    "level_day": "2026-11-05",
-   "close": 96.26,
-   "dist": 4.06
+   "close": 93.16,
+   "dist": 7.52
   },
   {
-   "s": "ZTS",
-   "n": "Zoetis Inc.",
+   "s": "TPR",
+   "n": "Tapestry, Inc.",
    "set": [
     "bull_flag"
    ],
    "why": "bull flag",
-   "level": 89.29,
-   "level_day": "2026-11-04",
-   "close": 82.57,
-   "dist": 8.14
-  },
-  {
-   "s": "PSA",
-   "n": "Public Storage",
-   "set": [
-    "bull_flag"
-   ],
-   "why": "bull flag",
-   "level": 345.89,
+   "level": 144.23,
    "level_day": "2026-11-05",
-   "close": 335.73,
-   "dist": 3.03
-  },
-  {
-   "s": "BX",
-   "n": "Blackstone Inc.",
-   "set": [
-    "bull_flag"
-   ],
-   "why": "bull flag",
-   "level": 127.67,
-   "level_day": "2026-11-05",
-   "close": 122.01,
-   "dist": 4.64
+   "close": 132.41,
+   "dist": 8.93
   },
   {
    "s": "GM",
@@ -733,140 +543,32 @@
    "why": "bull flag",
    "level": 93.7,
    "level_day": "2026-11-04",
-   "close": 88.9,
-   "dist": 5.4
+   "close": 86.0,
+   "dist": 8.95
   },
   {
-   "s": "AJG",
-   "n": "Arthur J. Gallagher & Co.",
+   "s": "IR",
+   "n": "Ingersoll Rand Inc.",
    "set": [
     "bull_flag"
    ],
    "why": "bull flag",
-   "level": 294.53,
-   "level_day": "2026-11-05",
-   "close": 282.01,
-   "dist": 4.44
+   "level": 87.72,
+   "level_day": "2026-11-09",
+   "close": 85.31,
+   "dist": 2.82
   },
   {
-   "s": "AZN",
-   "n": "AstraZeneca PLC",
+   "s": "ATI",
+   "n": "ATI Inc.",
    "set": [
     "bull_flag"
    ],
    "why": "bull flag",
-   "level": 192.65,
-   "level_day": "2026-11-05",
-   "close": 185.48,
-   "dist": 3.87
-  },
-  {
-   "s": "NDAQ",
-   "n": "Nasdaq, Inc.",
-   "set": [
-    "bull_flag"
-   ],
-   "why": "bull flag",
-   "level": 111.45,
-   "level_day": "2026-11-05",
-   "close": 109.68,
-   "dist": 1.61
-  },
-  {
-   "s": "KKR",
-   "n": "KKR & Co. Inc.",
-   "set": [
-    "bull_flag"
-   ],
-   "why": "bull flag",
-   "level": 103.84,
-   "level_day": "2026-11-05",
-   "close": 100.05,
-   "dist": 3.79
-  },
-  {
-   "s": "MRSH",
-   "n": "Marsh",
-   "set": [
-    "bull_flag"
-   ],
-   "why": "bull flag",
-   "level": 214.0,
-   "level_day": "2026-11-05",
-   "close": 207.52,
-   "dist": 3.12
-  },
-  {
-   "s": "AWK",
-   "n": "American Water Works Company, Inc.",
-   "set": [
-    "bull_flag"
-   ],
-   "why": "bull flag",
-   "level": 153.69,
-   "level_day": "2026-11-05",
-   "close": 149.66,
-   "dist": 2.69
-  },
-  {
-   "s": "LULU",
-   "n": "lululemon athletica inc.",
-   "set": [
-    "bull_flag"
-   ],
-   "why": "bull flag",
-   "level": 114.73,
-   "level_day": "2026-11-04",
-   "close": 107.45,
-   "dist": 6.78
-  },
-  {
-   "s": "CCI",
-   "n": "Crown Castle Inc.",
-   "set": [
-    "bull_flag"
-   ],
-   "why": "bull flag",
-   "level": 93.5,
-   "level_day": "2026-11-05",
-   "close": 89.06,
-   "dist": 4.99
-  },
-  {
-   "s": "STZ",
-   "n": "Constellation Brands, Inc.",
-   "set": [
-    "bull_flag"
-   ],
-   "why": "bull flag",
-   "level": 149.43,
-   "level_day": "2026-11-04",
-   "close": 144.12,
-   "dist": 3.68
-  },
-  {
-   "s": "ARES",
-   "n": "Ares Management Corporation",
-   "set": [
-    "bull_flag"
-   ],
-   "why": "bull flag",
-   "level": 141.91,
-   "level_day": "2026-11-11",
-   "close": 137.89,
-   "dist": 2.92
-  },
-  {
-   "s": "EPR",
-   "n": "EPR Properties",
-   "set": [
-    "bull_flag"
-   ],
-   "why": "bull flag",
-   "level": 61.6,
-   "level_day": "2026-11-10",
-   "close": 59.38,
-   "dist": 3.74
+   "level": 200.33,
+   "level_day": "2026-11-12",
+   "close": 183.09,
+   "dist": 9.42
   },
   {
    "s": "CPRT",
@@ -877,116 +579,32 @@
    "why": "bull flag",
    "level": 33.0,
    "level_day": "2026-11-05",
-   "close": 32.17,
-   "dist": 2.58
+   "close": 31.83,
+   "dist": 3.68
   },
   {
-   "s": "GEHC",
-   "n": "GE HealthCare Technologies Inc.",
+   "s": "NBIX",
+   "n": "Neurocrine Biosciences, Inc.",
    "set": [
     "bull_flag"
    ],
    "why": "bull flag",
-   "level": 87.56,
-   "level_day": "2026-11-04",
-   "close": 82.6,
-   "dist": 6.0
+   "level": 174.59,
+   "level_day": "2026-11-11",
+   "close": 167.4,
+   "dist": 4.3
   },
   {
-   "s": "GEN",
-   "n": "Gen Digital Inc.",
+   "s": "NCLH",
+   "n": "Norwegian Cruise Line Holdings Ltd.",
    "set": [
     "bull_flag"
    ],
    "why": "bull flag",
-   "level": 31.2,
-   "level_day": "2026-11-04",
-   "close": 30.64,
-   "dist": 1.83
-  },
-  {
-   "s": "OTIS",
-   "n": "Otis Worldwide Corporation",
-   "set": [
-    "bull_flag"
-   ],
-   "why": "bull flag",
-   "level": 81.18,
-   "level_day": "2026-11-04",
-   "close": 77.5,
-   "dist": 4.75
-  },
-  {
-   "s": "TSCO",
-   "n": "Tractor Supply Company",
-   "set": [
-    "bull_flag"
-   ],
-   "why": "bull flag",
-   "level": 37.72,
-   "level_day": "2026-11-09",
-   "close": 36.74,
-   "dist": 2.67
-  },
-  {
-   "s": "PHM",
-   "n": "PulteGroup, Inc.",
-   "set": [
-    "bull_flag"
-   ],
-   "why": "bull flag",
-   "level": 139.87,
-   "level_day": "2026-11-05",
-   "close": 129.5,
-   "dist": 8.01
-  },
-  {
-   "s": "TXT",
-   "n": "Textron Inc.",
-   "set": [
-    "bull_flag"
-   ],
-   "why": "bull flag",
-   "level": 89.9,
-   "level_day": "2026-10-29",
-   "close": 85.94,
-   "dist": 4.61
-  },
-  {
-   "s": "MAS",
-   "n": "Masco Corporation",
-   "set": [
-    "bull_flag"
-   ],
-   "why": "bull flag",
-   "level": 87.86,
-   "level_day": "2026-11-04",
-   "close": 84.91,
-   "dist": 3.47
-  },
-  {
-   "s": "D",
-   "n": "Dominion Energy, Inc.",
-   "set": [
-    "bull_flag"
-   ],
-   "why": "bull flag",
-   "level": 71.09,
-   "level_day": "2026-11-05",
-   "close": 68.06,
-   "dist": 4.45
-  },
-  {
-   "s": "ZBH",
-   "n": "Zimmer Biomet Holdings, Inc.",
-   "set": [
-    "bull_flag"
-   ],
-   "why": "bull flag",
-   "level": 112.55,
-   "level_day": "2026-11-04",
-   "close": 107.47,
-   "dist": 4.73
+   "level": 19.09,
+   "level_day": "2026-11-11",
+   "close": 18.06,
+   "dist": 5.7
   },
   {
    "s": "PPG",
@@ -997,176 +615,20 @@
    "why": "bull flag",
    "level": 128.87,
    "level_day": "2026-11-04",
-   "close": 124.97,
-   "dist": 3.12
+   "close": 122.56,
+   "dist": 5.15
   },
   {
-   "s": "MOS",
-   "n": "Mosaic Company (The)",
+   "s": "RRX",
+   "n": "Regal Rexnord Corporation",
    "set": [
     "bull_flag"
    ],
    "why": "bull flag",
-   "level": 23.73,
-   "level_day": "2026-11-09",
-   "close": 22.8,
-   "dist": 4.08
-  },
-  {
-   "s": "BAM",
-   "n": "Brookfield Asset Management Inc Class A Limited",
-   "set": [
-    "bull_flag"
-   ],
-   "why": "bull flag",
-   "level": 54.68,
-   "level_day": "2026-11-09",
-   "close": 52.56,
-   "dist": 4.03
-  },
-  {
-   "s": "FER",
-   "n": "Ferrovial N.V.",
-   "set": [
-    "bull_flag"
-   ],
-   "why": "bull flag",
-   "level": 61.7,
-   "level_day": "2026-11-09",
-   "close": 61.29,
-   "dist": 0.67
-  },
-  {
-   "s": "PFGC",
-   "n": "Performance Food Group Company",
-   "set": [
-    "bull_flag"
-   ],
-   "why": "bull flag",
-   "level": 112.65,
-   "level_day": "2026-11-09",
-   "close": 111.21,
-   "dist": 1.29
-  },
-  {
-   "s": "SWK",
-   "n": "Stanley Black & Decker, Inc.",
-   "set": [
-    "bull_flag"
-   ],
-   "why": "bull flag",
-   "level": 122.68,
-   "level_day": "2026-11-04",
-   "close": 115.62,
-   "dist": 6.11
-  },
-  {
-   "s": "WY",
-   "n": "Weyerhaeuser Company",
-   "set": [
-    "bull_flag"
-   ],
-   "why": "bull flag",
-   "level": 22.25,
-   "level_day": "2026-11-05",
-   "close": 20.65,
-   "dist": 7.75
-  },
-  {
-   "s": "BN",
-   "n": "Brookfield Corporation Class A Limited",
-   "set": [
-    "bull_flag"
-   ],
-   "why": "bull flag",
-   "level": 43.58,
-   "level_day": "2026-11-05",
-   "close": 42.06,
-   "dist": 3.61
-  },
-  {
-   "s": "ROL",
-   "n": "Rollins, Inc.",
-   "set": [
-    "bull_flag"
-   ],
-   "why": "bull flag",
-   "level": 39.51,
-   "level_day": "2026-11-05",
-   "close": 38.47,
-   "dist": 2.7
-  },
-  {
-   "s": "BAH",
-   "n": "Booz Allen Hamilton Holding Corporation",
-   "set": [
-    "bull_flag"
-   ],
-   "why": "bull flag",
-   "level": 91.34,
-   "level_day": "2026-11-05",
-   "close": 86.89,
-   "dist": 5.12
-  },
-  {
-   "s": "RBA",
-   "n": "RB Global, Inc.",
-   "set": [
-    "bull_flag"
-   ],
-   "why": "bull flag",
-   "level": 98.29,
-   "level_day": "2026-11-09",
-   "close": 95.67,
-   "dist": 2.74
-  },
-  {
-   "s": "ADT",
-   "n": "ADT Inc.",
-   "set": [
-    "bull_flag"
-   ],
-   "why": "bull flag",
-   "level": 9.99,
-   "level_day": "2026-10-29",
-   "close": 9.92,
-   "dist": 0.76
-  },
-  {
-   "s": "FND",
-   "n": "Floor & Decor Holdings, Inc.",
-   "set": [
-    "bull_flag"
-   ],
-   "why": "bull flag",
-   "level": 54.93,
-   "level_day": "2026-11-05",
-   "close": 51.06,
-   "dist": 7.58
-  },
-  {
-   "s": "KIM",
-   "n": "Kimco Realty Corporation (HC)",
-   "set": [
-    "bull_flag"
-   ],
-   "why": "bull flag",
-   "level": 26.37,
-   "level_day": "2026-11-05",
-   "close": 25.62,
-   "dist": 2.93
-  },
-  {
-   "s": "FTV",
-   "n": "Fortive Corporation",
-   "set": [
-    "bull_flag"
-   ],
-   "why": "bull flag",
-   "level": 68.94,
-   "level_day": "2026-11-04",
-   "close": 67.89,
-   "dist": 1.55
+   "level": 188.9,
+   "level_day": "2026-11-11",
+   "close": 176.41,
+   "dist": 7.08
   },
   {
    "s": "VFC",
@@ -1177,164 +639,104 @@
    "why": "bull flag",
    "level": 21.24,
    "level_day": "2026-11-09",
-   "close": 20.64,
-   "dist": 2.91
+   "close": 20.68,
+   "dist": 2.71
   },
   {
-   "s": "CPNG",
-   "n": "Coupang, Inc.",
+   "s": "GEHC",
+   "n": "GE HealthCare Technologies Inc.",
    "set": [
     "bull_flag"
    ],
    "why": "bull flag",
-   "level": 17.44,
+   "level": 87.56,
    "level_day": "2026-11-04",
-   "close": 15.99,
-   "dist": 9.1
+   "close": 81.84,
+   "dist": 6.99
   },
   {
-   "s": "EXEL",
-   "n": "Exelixis, Inc.",
+   "s": "IBN",
+   "n": "ICICI Bank Limited",
    "set": [
     "bull_flag"
    ],
    "why": "bull flag",
-   "level": 73.69,
+   "level": 35.0,
+   "level_day": "2026-11-12",
+   "close": 34.52,
+   "dist": 1.39
+  },
+  {
+   "s": "FWONK",
+   "n": "Liberty Media Corporation - Series C",
+   "set": [
+    "bull_flag"
+   ],
+   "why": "bull flag",
+   "level": 111.66,
+   "level_day": "2026-11-12",
+   "close": 109.44,
+   "dist": 2.03
+  },
+  {
+   "s": "LVS",
+   "n": "Las Vegas Sands Corp.",
+   "set": [
+    "bull_flag"
+   ],
+   "why": "bull flag",
+   "level": 41.73,
+   "level_day": "2026-11-09",
+   "close": 40.39,
+   "dist": 3.32
+  },
+  {
+   "s": "VLTO",
+   "n": "Veralto Corp",
+   "set": [
+    "bull_flag"
+   ],
+   "why": "bull flag",
+   "level": 119.7,
+   "level_day": "2026-11-12",
+   "close": 117.49,
+   "dist": 1.88
+  },
+  {
+   "s": "EPAM",
+   "n": "EPAM Systems, Inc.",
+   "set": [
+    "bull_flag"
+   ],
+   "why": "bull flag",
+   "level": 168.56,
    "level_day": "2026-11-05",
-   "close": 70.7,
-   "dist": 4.23
-  },
-  {
-   "s": "LTH",
-   "n": "Life Time Group Holdings, Inc.",
-   "set": [
-    "bull_flag"
-   ],
-   "why": "bull flag",
-   "level": 48.61,
-   "level_day": "2026-11-05",
-   "close": 47.52,
-   "dist": 2.29
-  },
-  {
-   "s": "VVV",
-   "n": "Valvoline Inc.",
-   "set": [
-    "bull_flag"
-   ],
-   "why": "bull flag",
-   "level": 36.92,
-   "level_day": "2026-11-05",
-   "close": 35.9,
-   "dist": 2.84
-  },
-  {
-   "s": "FTDR",
-   "n": "Frontdoor, Inc.",
-   "set": [
-    "bull_flag"
-   ],
-   "why": "bull flag",
-   "level": 103.07,
-   "level_day": "2026-11-05",
-   "close": 97.86,
-   "dist": 5.32
-  },
-  {
-   "s": "WTRG",
-   "n": "Essential Utilities, Inc.",
-   "set": [
-    "bull_flag"
-   ],
-   "why": "bull flag",
-   "level": 46.36,
-   "level_day": "2026-11-05",
-   "close": 44.95,
-   "dist": 3.14
-  },
-  {
-   "s": "PNR",
-   "n": "Pentair plc. Ordinary Share",
-   "set": [
-    "bull_flag"
-   ],
-   "why": "bull flag",
-   "level": 72.87,
-   "level_day": "2026-11-05",
-   "close": 69.33,
-   "dist": 5.11
-  },
-  {
-   "s": "AMRZ",
-   "n": "Amrize Ltd",
-   "set": [
-    "bull_flag"
-   ],
-   "why": "bull flag",
-   "level": 44.65,
-   "level_day": "2026-11-05",
-   "close": 41.63,
-   "dist": 7.25
-  },
-  {
-   "s": "HAYW",
-   "n": "Hayward Holdings, Inc.",
-   "set": [
-    "bull_flag"
-   ],
-   "why": "bull flag",
-   "level": 17.25,
-   "level_day": "2026-11-04",
-   "close": 16.77,
+   "close": 163.83,
    "dist": 2.89
   },
   {
-   "s": "BBWI",
-   "n": "Bath & Body Works, Inc.",
+   "s": "FER",
+   "n": "Ferrovial N.V.",
    "set": [
     "bull_flag"
    ],
    "why": "bull flag",
-   "level": 23.96,
-   "level_day": "2026-11-05",
-   "close": 21.72,
-   "dist": 10.31
+   "level": 61.77,
+   "level_day": "2026-11-12",
+   "close": 61.17,
+   "dist": 0.99
   },
   {
-   "s": "BSY",
-   "n": "Bentley Systems, Incorporated",
+   "s": "PCOR",
+   "n": "Procore Technologies, Inc.",
    "set": [
     "bull_flag"
    ],
    "why": "bull flag",
-   "level": 48.17,
+   "level": 79.8,
    "level_day": "2026-11-05",
-   "close": 44.44,
-   "dist": 8.39
-  },
-  {
-   "s": "OHI",
-   "n": "Omega Healthcare Investors, Inc.",
-   "set": [
-    "bull_flag"
-   ],
-   "why": "bull flag",
-   "level": 49.33,
-   "level_day": "2026-11-05",
-   "close": 48.12,
-   "dist": 2.51
-  },
-  {
-   "s": "VLY",
-   "n": "Valley National Bancorp",
-   "set": [
-    "bull_flag"
-   ],
-   "why": "bull flag",
-   "level": 14.9,
-   "level_day": "2026-11-04",
-   "close": 14.4,
-   "dist": 3.47
+   "close": 77.23,
+   "dist": 3.33
   },
   {
    "s": "CART",
@@ -1345,104 +747,128 @@
    "why": "bull flag",
    "level": 62.0,
    "level_day": "2026-10-26",
-   "close": 58.87,
-   "dist": 5.32
+   "close": 58.48,
+   "dist": 6.02
   },
   {
-   "s": "HRL",
-   "n": "Hormel Foods Corporation",
+   "s": "RBA",
+   "n": "RB Global, Inc.",
    "set": [
     "bull_flag"
    ],
    "why": "bull flag",
-   "level": 23.15,
-   "level_day": "2026-11-05",
-   "close": 21.95,
-   "dist": 5.47
+   "level": 98.29,
+   "level_day": "2026-11-09",
+   "close": 95.15,
+   "dist": 3.3
   },
   {
-   "s": "YUMC",
-   "n": "Yum China Holdings, Inc.",
+   "s": "GEN",
+   "n": "Gen Digital Inc.",
    "set": [
     "bull_flag"
    ],
    "why": "bull flag",
-   "level": 51.2,
-   "level_day": "2026-11-05",
-   "close": 49.04,
-   "dist": 4.4
-  },
-  {
-   "s": "JEF",
-   "n": "Jefferies Financial Group Inc.",
-   "set": [
-    "bull_flag"
-   ],
-   "why": "bull flag",
-   "level": 52.19,
-   "level_day": "2026-11-05",
-   "close": 47.82,
-   "dist": 9.14
-  },
-  {
-   "s": "CNM",
-   "n": "Core & Main, Inc.",
-   "set": [
-    "bull_flag"
-   ],
-   "why": "bull flag",
-   "level": 49.71,
-   "level_day": "2026-11-05",
-   "close": 46.0,
-   "dist": 8.07
-  },
-  {
-   "s": "YOU",
-   "n": "Clear Secure, Inc.",
-   "set": [
-    "bull_flag"
-   ],
-   "why": "bull flag",
-   "level": 66.2,
+   "level": 31.2,
    "level_day": "2026-11-04",
-   "close": 55.41,
-   "dist": 19.47
+   "close": 30.4,
+   "dist": 2.63
   },
   {
-   "s": "HR",
-   "n": "Healthcare Realty Trust Incorporated",
+   "s": "CELH",
+   "n": "Celsius Holdings, Inc.",
    "set": [
     "bull_flag"
    ],
    "why": "bull flag",
-   "level": 19.69,
+   "level": 33.69,
    "level_day": "2026-11-05",
-   "close": 19.26,
-   "dist": 2.23
+   "close": 32.42,
+   "dist": 3.92
   },
   {
-   "s": "GXO",
-   "n": "GXO Logistics, Inc.",
+   "s": "VTRS",
+   "n": "Viatris Inc.",
    "set": [
     "bull_flag"
    ],
    "why": "bull flag",
-   "level": 57.95,
+   "level": 21.2,
+   "level_day": "2026-11-12",
+   "close": 20.82,
+   "dist": 1.83
+  },
+  {
+   "s": "SWK",
+   "n": "Stanley Black & Decker, Inc.",
+   "set": [
+    "bull_flag"
+   ],
+   "why": "bull flag",
+   "level": 122.68,
    "level_day": "2026-11-04",
-   "close": 54.99,
-   "dist": 5.38
+   "close": 113.27,
+   "dist": 8.31
   },
   {
-   "s": "HOG",
-   "n": "Harley-Davidson, Inc.",
+   "s": "PFGC",
+   "n": "Performance Food Group Company",
    "set": [
     "bull_flag"
    ],
    "why": "bull flag",
-   "level": 34.84,
+   "level": 112.65,
+   "level_day": "2026-11-09",
+   "close": 109.96,
+   "dist": 2.45
+  },
+  {
+   "s": "HDB",
+   "n": "HDFC Bank Limited",
+   "set": [
+    "bull_flag"
+   ],
+   "why": "bull flag",
+   "level": 26.23,
+   "level_day": "2026-11-10",
+   "close": 25.83,
+   "dist": 1.55
+  },
+  {
+   "s": "RYTM",
+   "n": "Rhythm Pharmaceuticals, Inc.",
+   "set": [
+    "bull_flag"
+   ],
+   "why": "bull flag",
+   "level": 115.2,
+   "level_day": "2026-11-11",
+   "close": 109.86,
+   "dist": 4.86
+  },
+  {
+   "s": "RHI",
+   "n": "Robert Half Inc.",
+   "set": [
+    "bull_flag"
+   ],
+   "why": "bull flag",
+   "level": 47.14,
+   "level_day": "2026-10-23",
+   "close": 42.0,
+   "dist": 12.24
+  },
+  {
+   "s": "LTH",
+   "n": "Life Time Group Holdings, Inc.",
+   "set": [
+    "bull_flag"
+   ],
+   "why": "bull flag",
+   "level": 48.61,
    "level_day": "2026-11-05",
-   "close": 33.96,
-   "dist": 2.59
+   "close": 45.54,
+   "dist": 6.74
   },
   {
    "s": "SIRI",
@@ -1453,20 +879,224 @@
    "why": "bull flag",
    "level": 33.76,
    "level_day": "2026-11-05",
-   "close": 32.26,
-   "dist": 4.65
+   "close": 31.85,
+   "dist": 6.0
   },
   {
-   "s": "PLNT",
-   "n": "Planet Fitness, Inc.",
+   "s": "CPB",
+   "n": "The Campbell's Company",
    "set": [
     "bull_flag"
    ],
    "why": "bull flag",
-   "level": 61.84,
+   "level": 23.71,
+   "level_day": "2026-11-05",
+   "close": 22.77,
+   "dist": 4.13
+  },
+  {
+   "s": "COLD",
+   "n": "Americold Realty Trust, Inc.",
+   "set": [
+    "bull_flag"
+   ],
+   "why": "bull flag",
+   "level": 16.33,
+   "level_day": "2026-11-09",
+   "close": 15.9,
+   "dist": 2.67
+  },
+  {
+   "s": "HTHT",
+   "n": "H World Group Limited",
+   "set": [
+    "bull_flag"
+   ],
+   "why": "bull flag",
+   "level": 51.16,
+   "level_day": "2026-11-09",
+   "close": 50.39,
+   "dist": 1.53
+  },
+  {
+   "s": "VVV",
+   "n": "Valvoline Inc.",
+   "set": [
+    "bull_flag"
+   ],
+   "why": "bull flag",
+   "level": 36.92,
+   "level_day": "2026-11-05",
+   "close": 34.83,
+   "dist": 6.0
+  },
+  {
+   "s": "FLS",
+   "n": "Flowserve Corporation",
+   "set": [
+    "bull_flag"
+   ],
+   "why": "bull flag",
+   "level": 86.94,
    "level_day": "2026-11-11",
-   "close": 61.19,
+   "close": 83.1,
+   "dist": 4.62
+  },
+  {
+   "s": "ACM",
+   "n": "AECOM",
+   "set": [
+    "bull_flag"
+   ],
+   "why": "bull flag",
+   "level": 73.2,
+   "level_day": "2026-11-12",
+   "close": 70.5,
+   "dist": 3.83
+  },
+  {
+   "s": "ACHC",
+   "n": "Acadia Healthcare Company, Inc.",
+   "set": [
+    "bull_flag"
+   ],
+   "why": "bull flag",
+   "level": 39.7,
+   "level_day": "2026-11-09",
+   "close": 37.78,
+   "dist": 5.08
+  },
+  {
+   "s": "YUMC",
+   "n": "Yum China Holdings, Inc.",
+   "set": [
+    "bull_flag"
+   ],
+   "why": "bull flag",
+   "level": 51.2,
+   "level_day": "2026-11-05",
+   "close": 49.21,
+   "dist": 4.04
+  },
+  {
+   "s": "SNY",
+   "n": "Sanofi",
+   "set": [
+    "bull_flag"
+   ],
+   "why": "bull flag",
+   "level": 48.96,
+   "level_day": "2026-11-12",
+   "close": 48.37,
+   "dist": 1.22
+  },
+  {
+   "s": "TCOM",
+   "n": "Trip.com Group Limited",
+   "set": [
+    "bull_flag"
+   ],
+   "why": "bull flag",
+   "level": 44.9,
+   "level_day": "2026-11-05",
+   "close": 43.58,
+   "dist": 3.03
+  },
+  {
+   "s": "ADT",
+   "n": "ADT Inc.",
+   "set": [
+    "bull_flag"
+   ],
+   "why": "bull flag",
+   "level": 9.99,
+   "level_day": "2026-10-29",
+   "close": 9.89,
    "dist": 1.06
+  },
+  {
+   "s": "TGTX",
+   "n": "TG Therapeutics, Inc.",
+   "set": [
+    "bull_flag"
+   ],
+   "why": "bull flag",
+   "level": 68.03,
+   "level_day": "2026-11-10",
+   "close": 64.51,
+   "dist": 5.46
+  },
+  {
+   "s": "PNR",
+   "n": "Pentair plc. Ordinary Share",
+   "set": [
+    "bull_flag"
+   ],
+   "why": "bull flag",
+   "level": 72.87,
+   "level_day": "2026-11-05",
+   "close": 68.3,
+   "dist": 6.69
+  },
+  {
+   "s": "VNT",
+   "n": "Vontier Corporation",
+   "set": [
+    "bull_flag"
+   ],
+   "why": "bull flag",
+   "level": 44.24,
+   "level_day": "2026-11-09",
+   "close": 43.18,
+   "dist": 2.45
+  },
+  {
+   "s": "BSY",
+   "n": "Bentley Systems, Incorporated",
+   "set": [
+    "bull_flag"
+   ],
+   "why": "bull flag",
+   "level": 48.17,
+   "level_day": "2026-11-05",
+   "close": 44.19,
+   "dist": 9.01
+  },
+  {
+   "s": "PRMB",
+   "n": "Primo Brands Corporation",
+   "set": [
+    "bull_flag"
+   ],
+   "why": "bull flag",
+   "level": 24.19,
+   "level_day": "2026-11-13",
+   "close": 23.88,
+   "dist": 1.3
+  },
+  {
+   "s": "DB",
+   "n": "Deutsche Bank AG",
+   "set": [
+    "bull_flag"
+   ],
+   "why": "bull flag",
+   "level": 37.94,
+   "level_day": "2026-11-05",
+   "close": 36.62,
+   "dist": 3.6
+  },
+  {
+   "s": "GXO",
+   "n": "GXO Logistics, Inc.",
+   "set": [
+    "bull_flag"
+   ],
+   "why": "bull flag",
+   "level": 57.95,
+   "level_day": "2026-11-04",
+   "close": 54.33,
+   "dist": 6.66
   },
   {
    "s": "CUBE",
@@ -1477,212 +1107,32 @@
    "why": "bull flag",
    "level": 46.41,
    "level_day": "2026-11-05",
-   "close": 45.14,
-   "dist": 2.81
+   "close": 44.91,
+   "dist": 3.34
   },
   {
-   "s": "AOS",
-   "n": "A.O. Smith Corporation",
+   "s": "RDY",
+   "n": "Dr. Reddy's Laboratories Ltd",
    "set": [
     "bull_flag"
    ],
    "why": "bull flag",
-   "level": 68.12,
-   "level_day": "2026-11-05",
-   "close": 64.61,
-   "dist": 5.43
-  },
-  {
-   "s": "SMA",
-   "n": "SmartStop Self Storage REIT, Inc.",
-   "set": [
-    "bull_flag"
-   ],
-   "why": "bull flag",
-   "level": 40.35,
+   "level": 15.08,
    "level_day": "2026-11-09",
-   "close": 38.91,
-   "dist": 3.7
+   "close": 14.74,
+   "dist": 2.31
   },
   {
-   "s": "SUZ",
-   "n": "Suzano S.A.",
+   "s": "AEO",
+   "n": "American Eagle Outfitters, Inc.",
    "set": [
     "bull_flag"
    ],
    "why": "bull flag",
-   "level": 9.87,
-   "level_day": "2026-11-10",
-   "close": 9.65,
-   "dist": 2.28
-  },
-  {
-   "s": "HGV",
-   "n": "Hilton Grand Vacations Inc.",
-   "set": [
-    "bull_flag"
-   ],
-   "why": "bull flag",
-   "level": 45.63,
-   "level_day": "2026-11-10",
-   "close": 45.41,
-   "dist": 0.48
-  },
-  {
-   "s": "BRX",
-   "n": "Brixmor Property Group Inc.",
-   "set": [
-    "bull_flag"
-   ],
-   "why": "bull flag",
-   "level": 30.67,
-   "level_day": "2026-11-05",
-   "close": 30.26,
-   "dist": 1.35
-  },
-  {
-   "s": "CWEN",
-   "n": "Clearway Energy, Inc.",
-   "set": [
-    "bull_flag"
-   ],
-   "why": "bull flag",
-   "level": 35.89,
-   "level_day": "2026-11-05",
-   "close": 34.29,
-   "dist": 4.67
-  },
-  {
-   "s": "MAC",
-   "n": "Macerich Company (The)",
-   "set": [
-    "bull_flag"
-   ],
-   "why": "bull flag",
-   "level": 25.93,
-   "level_day": "2026-11-04",
-   "close": 25.38,
-   "dist": 2.17
-  },
-  {
-   "s": "NVST",
-   "n": "Envista Holdings Corporation",
-   "set": [
-    "bull_flag"
-   ],
-   "why": "bull flag",
-   "level": 27.37,
-   "level_day": "2026-11-04",
-   "close": 25.32,
-   "dist": 8.1
-  },
-  {
-   "s": "RYAN",
-   "n": "Ryan Specialty Holdings, Inc.",
-   "set": [
-    "bull_flag"
-   ],
-   "why": "bull flag",
-   "level": 49.0,
-   "level_day": "2026-11-09",
-   "close": 46.87,
-   "dist": 4.54
-  },
-  {
-   "s": "TME",
-   "n": "Tencent Music Entertainment Group",
-   "set": [
-    "bull_flag"
-   ],
-   "why": "bull flag",
-   "level": 9.72,
-   "level_day": "2026-11-05",
-   "close": 9.22,
-   "dist": 5.42
-  },
-  {
-   "s": "RTO",
-   "n": "Rentokil Initial plc",
-   "set": [
-    "bull_flag"
-   ],
-   "why": "bull flag",
-   "level": 24.45,
-   "level_day": "2026-11-05",
-   "close": 23.59,
-   "dist": 3.65
-  },
-  {
-   "s": "WEN",
-   "n": "Wendy's Company (The)",
-   "set": [
-    "bull_flag"
-   ],
-   "why": "bull flag",
-   "level": 8.43,
-   "level_day": "2026-11-11",
-   "close": 8.34,
-   "dist": 1.08
-  },
-  {
-   "s": "BXMT",
-   "n": "Blackstone Mortgage Trust, Inc.",
-   "set": [
-    "bull_flag"
-   ],
-   "why": "bull flag",
-   "level": 11.92,
-   "level_day": "2026-11-05",
-   "close": 11.01,
-   "dist": 8.27
-  },
-  {
-   "s": "EPRT",
-   "n": "Essential Properties Realty Trust, Inc.",
-   "set": [
-    "bull_flag"
-   ],
-   "why": "bull flag",
-   "level": 28.45,
-   "level_day": "2026-11-05",
-   "close": 27.97,
-   "dist": 1.73
-  },
-  {
-   "s": "RITM",
-   "n": "Rithm Capital Corp.",
-   "set": [
-    "bull_flag"
-   ],
-   "why": "bull flag",
-   "level": 9.7,
-   "level_day": "2026-11-05",
-   "close": 9.21,
-   "dist": 5.32
-  },
-  {
-   "s": "SBRA",
-   "n": "Sabra Health Care REIT, Inc.",
-   "set": [
-    "bull_flag"
-   ],
-   "why": "bull flag",
-   "level": 21.56,
-   "level_day": "2026-11-09",
-   "close": 20.97,
-   "dist": 2.81
-  },
-  {
-   "s": "PHG",
-   "n": "Koninklijke Philips N.V. NY Registry Shares",
-   "set": [
-    "bull_flag"
-   ],
-   "why": "bull flag",
-   "level": 31.14,
-   "level_day": "2026-11-05",
-   "close": 30.2,
-   "dist": 3.11
+   "level": 22.16,
+   "level_day": "2026-11-12",
+   "close": 21.71,
+   "dist": 2.07
   },
   {
    "s": "FLYW",
@@ -1693,32 +1143,32 @@
    "why": "bull flag",
    "level": 22.58,
    "level_day": "2026-11-11",
-   "close": 22.25,
-   "dist": 1.51
+   "close": 21.47,
+   "dist": 5.19
   },
   {
-   "s": "CURB",
-   "n": "Curbline Properties Corp.",
+   "s": "HAYW",
+   "n": "Hayward Holdings, Inc.",
    "set": [
     "bull_flag"
    ],
    "why": "bull flag",
-   "level": 30.68,
-   "level_day": "2026-11-05",
-   "close": 29.25,
-   "dist": 4.89
+   "level": 17.25,
+   "level_day": "2026-11-04",
+   "close": 16.69,
+   "dist": 3.39
   },
   {
-   "s": "OLN",
-   "n": "Olin Corporation",
+   "s": "LKQ",
+   "n": "LKQ Corporation",
    "set": [
     "bull_flag"
    ],
    "why": "bull flag",
-   "level": 18.56,
-   "level_day": "2026-11-05",
-   "close": 17.89,
-   "dist": 3.75
+   "level": 22.6,
+   "level_day": "2026-10-22",
+   "close": 19.47,
+   "dist": 16.08
   },
   {
    "s": "MRP",
@@ -1729,56 +1179,140 @@
    "why": "bull flag",
    "level": 27.22,
    "level_day": "2026-11-05",
-   "close": 26.03,
-   "dist": 4.57
+   "close": 25.67,
+   "dist": 6.04
   },
   {
-   "s": "OTF",
-   "n": "Blue Owl Technology Finance Corp.",
+   "s": "WEN",
+   "n": "Wendy's Company (The)",
    "set": [
     "bull_flag"
    ],
    "why": "bull flag",
-   "level": 10.24,
+   "level": 8.5,
+   "level_day": "2026-11-12",
+   "close": 8.28,
+   "dist": 2.66
+  },
+  {
+   "s": "RYN",
+   "n": "Rayonier Inc. REIT",
+   "set": [
+    "bull_flag"
+   ],
+   "why": "bull flag",
+   "level": 21.97,
+   "level_day": "2026-11-09",
+   "close": 21.5,
+   "dist": 2.19
+  },
+  {
+   "s": "PHG",
+   "n": "Koninklijke Philips N.V. NY Registry Shares",
+   "set": [
+    "bull_flag"
+   ],
+   "why": "bull flag",
+   "level": 31.14,
    "level_day": "2026-11-05",
-   "close": 9.59,
-   "dist": 6.78
+   "close": 30.34,
+   "dist": 2.64
   },
   {
-   "s": "WWW",
-   "n": "Wolverine World Wide, Inc.",
+   "s": "GPK",
+   "n": "Graphic Packaging Holding Company",
    "set": [
     "bull_flag"
    ],
    "why": "bull flag",
-   "level": 23.84,
+   "level": 12.14,
+   "level_day": "2026-11-04",
+   "close": 10.87,
+   "dist": 11.68
+  },
+  {
+   "s": "ENOV",
+   "n": "Enovis Corporation",
+   "set": [
+    "bull_flag"
+   ],
+   "why": "bull flag",
+   "level": 29.89,
    "level_day": "2026-11-05",
-   "close": 21.93,
-   "dist": 8.71
+   "close": 27.68,
+   "dist": 7.98
   },
   {
-   "s": "CAE",
-   "n": "CAE Inc",
+   "s": "OLN",
+   "n": "Olin Corporation",
    "set": [
     "bull_flag"
    ],
    "why": "bull flag",
-   "level": 27.93,
-   "level_day": "2026-11-11",
-   "close": 27.39,
-   "dist": 1.97
-  },
-  {
-   "s": "HAPN",
-   "n": "Happen, Inc.",
-   "set": [
-    "bull_flag"
-   ],
-   "why": "bull flag",
-   "level": 16.87,
+   "level": 18.56,
    "level_day": "2026-11-05",
-   "close": 15.72,
-   "dist": 7.32
+   "close": 17.46,
+   "dist": 6.3
+  },
+  {
+   "s": "CERT",
+   "n": "Certara, Inc.",
+   "set": [
+    "bull_flag"
+   ],
+   "why": "bull flag",
+   "level": 12.61,
+   "level_day": "2026-11-06",
+   "close": 11.9,
+   "dist": 5.97
+  },
+  {
+   "s": "STGW",
+   "n": "Stagwell Inc.",
+   "set": [
+    "bull_flag"
+   ],
+   "why": "bull flag",
+   "level": 12.26,
+   "level_day": "2026-11-09",
+   "close": 11.27,
+   "dist": 8.78
+  },
+  {
+   "s": "TDOC",
+   "n": "Teladoc Health, Inc.",
+   "set": [
+    "bull_flag"
+   ],
+   "why": "bull flag",
+   "level": 9.79,
+   "level_day": "2026-11-05",
+   "close": 8.69,
+   "dist": 12.66
+  },
+  {
+   "s": "ARLO",
+   "n": "Arlo Technologies, Inc.",
+   "set": [
+    "bull_flag"
+   ],
+   "why": "bull flag",
+   "level": 15.64,
+   "level_day": "2026-11-04",
+   "close": 11.83,
+   "dist": 32.21
+  },
+  {
+   "s": "CALY",
+   "n": "Callaway Golf Company",
+   "set": [
+    "bull_flag"
+   ],
+   "why": "bull flag",
+   "level": 17.78,
+   "level_day": "2026-11-09",
+   "close": 17.1,
+   "dist": 3.98
   },
   {
    "s": "NTST",
@@ -1789,44 +1323,20 @@
    "why": "bull flag",
    "level": 19.2,
    "level_day": "2026-11-10",
-   "close": 18.78,
-   "dist": 2.24
+   "close": 18.44,
+   "dist": 4.12
   },
   {
-   "s": "DNLI",
-   "n": "Denali Therapeutics Inc.",
+   "s": "BHC",
+   "n": "Bausch Health Companies Inc.",
    "set": [
     "bull_flag"
    ],
    "why": "bull flag",
-   "level": 22.19,
-   "level_day": "2026-11-04",
-   "close": 19.73,
-   "dist": 12.47
-  },
-  {
-   "s": "FCPT",
-   "n": "Four Corners Property Trust, Inc.",
-   "set": [
-    "bull_flag"
-   ],
-   "why": "bull flag",
-   "level": 24.08,
-   "level_day": "2026-11-05",
-   "close": 23.39,
-   "dist": 2.95
-  },
-  {
-   "s": "UE",
-   "n": "Urban Edge Properties",
-   "set": [
-    "bull_flag"
-   ],
-   "why": "bull flag",
-   "level": 21.49,
-   "level_day": "2026-11-05",
-   "close": 20.8,
-   "dist": 3.32
+   "level": 9.04,
+   "level_day": "2026-10-29",
+   "close": 8.35,
+   "dist": 8.26
   },
   {
    "s": "FSK",
@@ -1837,34 +1347,514 @@
    "why": "bull flag",
    "level": 12.63,
    "level_day": "2026-11-05",
-   "close": 11.88,
-   "dist": 6.31
+   "close": 11.61,
+   "dist": 8.79
+  },
+  {
+   "s": "TRTX",
+   "n": "TPG RE Finance Trust, Inc.",
+   "set": [
+    "bull_flag"
+   ],
+   "why": "bull flag",
+   "level": 7.45,
+   "level_day": "2026-11-05",
+   "close": 6.43,
+   "dist": 15.86
+  },
+  {
+   "s": "BRK.B",
+   "n": "Berkshire Hathaway Inc. New",
+   "set": [
+    "breakout_20d"
+   ],
+   "why": "20-day breakout",
+   "level": 596.92,
+   "level_day": "2026-11-12",
+   "close": 592.94,
+   "dist": 0.67
+  },
+  {
+   "s": "LLY",
+   "n": "Eli Lilly and Company",
+   "set": [
+    "breakout_20d"
+   ],
+   "why": "20-day breakout",
+   "level": 1460.0,
+   "level_day": "2026-11-12",
+   "close": 1443.5,
+   "dist": 1.14
+  },
+  {
+   "s": "COST",
+   "n": "Costco Wholesale Corporation",
+   "set": [
+    "breakout_20d"
+   ],
+   "why": "20-day breakout",
+   "level": 1109.5,
+   "level_day": "2026-11-13",
+   "close": 1106.21,
+   "dist": 0.3
+  },
+  {
+   "s": "JNJ",
+   "n": "Johnson & Johnson",
+   "set": [
+    "breakout_20d"
+   ],
+   "why": "20-day breakout",
+   "level": 288.11,
+   "level_day": "2026-11-13",
+   "close": 285.75,
+   "dist": 0.83
+  },
+  {
+   "s": "KO",
+   "n": "Coca-Cola Company (The)",
+   "set": [
+    "breakout_20d"
+   ],
+   "why": "20-day breakout",
+   "level": 99.3,
+   "level_day": "2026-11-13",
+   "close": 99.25,
+   "dist": 0.05
+  },
+  {
+   "s": "ANET",
+   "n": "Arista Networks, Inc.",
+   "set": [
+    "breakout_20d"
+   ],
+   "why": "20-day breakout",
+   "level": 207.17,
+   "level_day": "2026-11-12",
+   "close": 206.63,
+   "dist": 0.26
+  },
+  {
+   "s": "PG",
+   "n": "Procter & Gamble Company (The)",
+   "set": [
+    "breakout_20d"
+   ],
+   "why": "20-day breakout",
+   "level": 170.73,
+   "level_day": "2026-11-13",
+   "close": 169.8,
+   "dist": 0.55
+  },
+  {
+   "s": "PEP",
+   "n": "PepsiCo, Inc.",
+   "set": [
+    "breakout_20d"
+   ],
+   "why": "20-day breakout",
+   "level": 145.78,
+   "level_day": "2026-11-13",
+   "close": 145.44,
+   "dist": 0.23
+  },
+  {
+   "s": "XEL",
+   "n": "Xcel Energy Inc.",
+   "set": [
+    "breakout_20d"
+   ],
+   "why": "20-day breakout",
+   "level": 82.0,
+   "level_day": "2026-11-13",
+   "close": 81.61,
+   "dist": 0.48
+  },
+  {
+   "s": "HUM",
+   "n": "Humana Inc.",
+   "set": [
+    "breakout_20d"
+   ],
+   "why": "20-day breakout",
+   "level": 451.04,
+   "level_day": "2026-11-13",
+   "close": 450.0,
+   "dist": 0.23
+  },
+  {
+   "s": "CEG",
+   "n": "Constellation Energy Corporation",
+   "set": [
+    "breakout_20d"
+   ],
+   "why": "20-day breakout",
+   "level": 282.7,
+   "level_day": "2026-11-12",
+   "close": 282.4,
+   "dist": 0.11
+  },
+  {
+   "s": "CB",
+   "n": "Chubb Limited",
+   "set": [
+    "breakout_20d"
+   ],
+   "why": "20-day breakout",
+   "level": 384.26,
+   "level_day": "2026-11-05",
+   "close": 375.74,
+   "dist": 2.27
+  },
+  {
+   "s": "CL",
+   "n": "Colgate-Palmolive Company",
+   "set": [
+    "breakout_20d"
+   ],
+   "why": "20-day breakout",
+   "level": 101.18,
+   "level_day": "2026-11-05",
+   "close": 99.67,
+   "dist": 1.52
+  },
+  {
+   "s": "CME",
+   "n": "CME Group Inc.",
+   "set": [
+    "breakout_20d"
+   ],
+   "why": "20-day breakout",
+   "level": 321.34,
+   "level_day": "2026-11-12",
+   "close": 317.97,
+   "dist": 1.06
+  },
+  {
+   "s": "COR",
+   "n": "Cencora, Inc.",
+   "set": [
+    "breakout_20d"
+   ],
+   "why": "20-day breakout",
+   "level": 363.95,
+   "level_day": "2026-11-05",
+   "close": 359.03,
+   "dist": 1.37
+  },
+  {
+   "s": "CMCSA",
+   "n": "Comcast Corporation",
+   "set": [
+    "breakout_20d"
+   ],
+   "why": "20-day breakout",
+   "level": 25.42,
+   "level_day": "2026-11-13",
+   "close": 25.16,
+   "dist": 1.03
+  },
+  {
+   "s": "BNY",
+   "n": "The Bank of New York Mellon Corporation",
+   "set": [
+    "breakout_20d"
+   ],
+   "why": "20-day breakout",
+   "level": 155.05,
+   "level_day": "2026-11-05",
+   "close": 153.41,
+   "dist": 1.07
+  },
+  {
+   "s": "MDLZ",
+   "n": "Mondelez International, Inc.",
+   "set": [
+    "breakout_20d"
+   ],
+   "why": "20-day breakout",
+   "level": 68.75,
+   "level_day": "2026-11-05",
+   "close": 67.54,
+   "dist": 1.79
+  },
+  {
+   "s": "CHTR",
+   "n": "Charter Communications, Inc.",
+   "set": [
+    "breakout_20d"
+   ],
+   "why": "20-day breakout",
+   "level": 139.77,
+   "level_day": "2026-11-13",
+   "close": 138.39,
+   "dist": 1.0
+  },
+  {
+   "s": "BDX",
+   "n": "Becton, Dickinson and Company",
+   "set": [
+    "breakout_20d"
+   ],
+   "why": "20-day breakout",
+   "level": 219.78,
+   "level_day": "2026-11-13",
+   "close": 218.03,
+   "dist": 0.8
+  },
+  {
+   "s": "ADP",
+   "n": "Automatic Data Processing, Inc.",
+   "set": [
+    "breakout_20d"
+   ],
+   "why": "20-day breakout",
+   "level": 311.89,
+   "level_day": "2026-11-12",
+   "close": 309.93,
+   "dist": 0.63
+  },
+  {
+   "s": "TLN",
+   "n": "Talen Energy Corporation",
+   "set": [
+    "breakout_20d"
+   ],
+   "why": "20-day breakout",
+   "level": 392.2,
+   "level_day": "2026-11-12",
+   "close": 386.68,
+   "dist": 1.43
+  },
+  {
+   "s": "MO",
+   "n": "Altria Group, Inc.",
+   "set": [
+    "breakout_20d"
+   ],
+   "why": "20-day breakout",
+   "level": 79.87,
+   "level_day": "2026-11-05",
+   "close": 78.64,
+   "dist": 1.56
+  },
+  {
+   "s": "APO",
+   "n": "Apollo Global Management, Inc. (New)",
+   "set": [
+    "breakout_20d"
+   ],
+   "why": "20-day breakout",
+   "level": 125.43,
+   "level_day": "2026-11-05",
+   "close": 123.47,
+   "dist": 1.59
+  },
+  {
+   "s": "PGR",
+   "n": "Progressive Corporation (The)",
+   "set": [
+    "breakout_20d"
+   ],
+   "why": "20-day breakout",
+   "level": 241.02,
+   "level_day": "2026-11-05",
+   "close": 235.78,
+   "dist": 2.22
+  },
+  {
+   "s": "CAH",
+   "n": "Cardinal Health, Inc.",
+   "set": [
+    "breakout_20d"
+   ],
+   "why": "20-day breakout",
+   "level": 286.29,
+   "level_day": "2026-11-05",
+   "close": 281.1,
+   "dist": 1.85
+  },
+  {
+   "s": "TEVA",
+   "n": "Teva Pharmaceutical Industries Limited",
+   "set": [
+    "breakout_20d"
+   ],
+   "why": "20-day breakout",
+   "level": 44.57,
+   "level_day": "2026-11-13",
+   "close": 44.5,
+   "dist": 0.16
+  },
+  {
+   "s": "KR",
+   "n": "Kroger Company (The)",
+   "set": [
+    "breakout_20d"
+   ],
+   "why": "20-day breakout",
+   "level": 71.64,
+   "level_day": "2026-11-05",
+   "close": 70.8,
+   "dist": 1.19
+  },
+  {
+   "s": "STZ",
+   "n": "Constellation Brands, Inc.",
+   "set": [
+    "breakout_20d"
+   ],
+   "why": "20-day breakout",
+   "level": 149.43,
+   "level_day": "2026-11-04",
+   "close": 145.61,
+   "dist": 2.62
+  },
+  {
+   "s": "FROG",
+   "n": "JFrog Ltd.",
+   "set": [
+    "breakout_20d"
+   ],
+   "why": "20-day breakout",
+   "level": 113.23,
+   "level_day": "2026-11-11",
+   "close": 110.6,
+   "dist": 2.38
+  },
+  {
+   "s": "AFL",
+   "n": "AFLAC Incorporated",
+   "set": [
+    "breakout_20d"
+   ],
+   "why": "20-day breakout",
+   "level": 131.19,
+   "level_day": "2026-11-05",
+   "close": 127.61,
+   "dist": 2.81
+  },
+  {
+   "s": "NI",
+   "n": "NiSource Inc",
+   "set": [
+    "breakout_20d"
+   ],
+   "why": "20-day breakout",
+   "level": 46.17,
+   "level_day": "2026-11-13",
+   "close": 46.05,
+   "dist": 0.26
+  },
+  {
+   "s": "WCN",
+   "n": "Waste Connections, Inc.",
+   "set": [
+    "breakout_20d"
+   ],
+   "why": "20-day breakout",
+   "level": 196.51,
+   "level_day": "2026-11-13",
+   "close": 193.97,
+   "dist": 1.31
+  },
+  {
+   "s": "ROL",
+   "n": "Rollins, Inc.",
+   "set": [
+    "breakout_20d"
+   ],
+   "why": "20-day breakout",
+   "level": 39.51,
+   "level_day": "2026-11-05",
+   "close": 38.88,
+   "dist": 1.62
+  },
+  {
+   "s": "AEE",
+   "n": "Ameren Corporation",
+   "set": [
+    "breakout_20d"
+   ],
+   "why": "20-day breakout",
+   "level": 115.31,
+   "level_day": "2026-11-05",
+   "close": 114.77,
+   "dist": 0.47
+  },
+  {
+   "s": "PEG",
+   "n": "Public Service Enterprise Group Incorporated",
+   "set": [
+    "breakout_20d"
+   ],
+   "why": "20-day breakout",
+   "level": 75.89,
+   "level_day": "2026-11-13",
+   "close": 75.88,
+   "dist": 0.01
+  },
+  {
+   "s": "TXNM",
+   "n": "TXNM Energy, Inc.",
+   "set": [
+    "breakout_20d"
+   ],
+   "why": "20-day breakout",
+   "level": 59.01,
+   "level_day": "2026-11-03",
+   "close": 58.87,
+   "dist": 0.24
+  },
+  {
+   "s": "TW",
+   "n": "Tradeweb Markets Inc.",
+   "set": [
+    "breakout_20d"
+   ],
+   "why": "20-day breakout",
+   "level": 132.46,
+   "level_day": "2026-11-12",
+   "close": 131.64,
+   "dist": 0.62
+  },
+  {
+   "s": "CHD",
+   "n": "Church & Dwight Company, Inc.",
+   "set": [
+    "breakout_20d"
+   ],
+   "why": "20-day breakout",
+   "level": 114.64,
+   "level_day": "2026-11-05",
+   "close": 113.0,
+   "dist": 1.45
   }
  ],
  "orb": [
   "TSLA",
   "NVDA",
   "AAPL",
-  "FISV",
-  "ALNY",
-  "ICE",
-  "AXON",
-  "CMCSA",
-  "WCN",
   "EW",
-  "TEAM",
-  "SPG",
+  "AXON",
+  "CLX",
+  "PBR",
   "DT",
-  "VLTO",
-  "LUV",
+  "CROX",
+  "HWC",
+  "INSM",
   "IONS",
-  "PCOR",
-  "SNY",
-  "MGM",
   "ARWR",
+  "MGM",
+  "TBBB",
+  "PBR.A",
   "DOX",
-  "VIST",
-  "SONO"
+  "ADMA",
+  "YPF",
+  "AD",
+  "PAR",
+  "CHA",
+  "HLF"
  ],
  "failed": []
 }
